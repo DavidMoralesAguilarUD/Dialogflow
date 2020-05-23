@@ -17,22 +17,29 @@ server.get('/', (req,res)=>{
 
 server.post("/Bot",(req,res)=>{
     let contexto = "nada"
-    let resultado=`recibida peticion post incorrecta`;
+    let resultado;
+    let textoEnviar=`recibida peticion post incorrecta`;
     try{
         contexto=req.body.queryResult.action;
-        resultado=`recibida peticion de accion: ${contexto}`;
+        textoEnviar=`recibida peticion de accion: ${contexto}`;
     } catch(error){
         console.log("Error contexto vacio:"+error);
     }
+    
     if(req.body.queryResult.parameters){
         console.log("parametros:"+req.body.queryResult.parameters);
     } else {
         console.log("Sin Parametros");
     }
+
+    if (contexto==="input.welcome"){
+        textoEnviar="Hola, soy el primer webhook";
+        resultado=DialogLib.respuestaBasica(textoEnviar);
+    }
     res.json(resultado);
 });
 
-const local=true;
+const local=false;
 if(local){
     server.listen((process.env.PORT || 8000), ()=>{
         console.log("Servidor funcionando");
