@@ -19,6 +19,7 @@ server.post("/Bot",(req,res)=>{
     let contexto = "nada"
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
+    let opciones=["Opcion_1", "Opcion_2", "Opcion_3", "Opcion_4"];
     try{
         contexto=req.body.queryResult.action;
         textoEnviar=`recibida peticion de accion: ${contexto}`;
@@ -36,6 +37,7 @@ server.post("/Bot",(req,res)=>{
         textoEnviar="Hola, soy el primer webhook";
         resultado=DialogLib.respuestaBasica(textoEnviar);
     }
+    DialogLib.addSuggestions(resultado, opciones);
     res.json(resultado);
 });
 
