@@ -23,10 +23,26 @@ function respuestaBasica(textoEnviar) {
     }
     return respuesta;
 }
+function addSuggestions(res, opciones){
+    res.fulfillmentMessages.push({
+        "platform": "ACTIONS_ON_GOOGLE",
+        "suggestions": {
+            "suggestions": OptionsListGoogle(opciones)
+        }
+    });
+}
+function OptionsListGoogle(opciones){
+    let res=[];
+    for(let i=0; i<opciones.length;i++){
+        res.push({"title": opciones[i]})
+    }
+    return res;
+}
 function hola(nombre) {
     console.log("Encantado de conocerte " + nombre);
 }
 module.exports = {
     hola: hola,
-    respuestaBasica: respuestaBasica
+    respuestaBasica: respuestaBasica,
+    addSuggestions: addSuggestions
 }
