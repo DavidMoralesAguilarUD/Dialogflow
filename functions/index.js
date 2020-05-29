@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const path=require('path');
 
 const DialogLib=require('./DialogLib');
+
+// Variables Globales
 const server= express();
 server.use(bodyParser.urlencoded({
     extended:true
@@ -20,6 +22,8 @@ server.post("/Bot",(req,res)=>{
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
     let opciones=["Opcion_1", "Opcion_2", "Opcion_3", "Opcion_4"];
+    
+    // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
         contexto=req.body.queryResult.action;
         textoEnviar=`recibida peticion de accion: ${contexto}`;
@@ -34,14 +38,18 @@ server.post("/Bot",(req,res)=>{
     }
 
     if (contexto==="input.welcome"){
-        textoEnviar="Hola, soy el primer webhook";
+        textoEnviar="Hola, soy tu ChatBot Virtual UD D";
         resultado=DialogLib.respuestaBasica(textoEnviar);
+    } else if  (contexto==="menu"){
+        resultado=DialogLib.respuestaBasica("Esta en el menu principal de serivicios");
+    }else{
+        resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
     DialogLib.addSuggestions(resultado, opciones);
     res.json(resultado);
 });
 
-const local=false;
+const local=true;
 if(local){
     server.listen((process.env.PORT || 8000), ()=>{
         console.log("Servidor funcionando");
