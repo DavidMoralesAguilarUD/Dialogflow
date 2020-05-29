@@ -12,3 +12,4 @@ let opciones=["opcion_1","opcion_2", "opcion_3"];
 DialogLib.addSuggestions(respuesta, opciones);
 console.log(respuesta);
 console.log(JSON.stringify(respuesta));
+DialogLib.parameters(parametros);
