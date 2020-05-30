@@ -12,4 +12,8 @@ let opciones=["opcion_1","opcion_2", "opcion_3"];
 DialogLib.addSuggestions(respuesta, opciones);
 console.log(respuesta);
 console.log(JSON.stringify(respuesta));
-DialogLib.parameters(parametros);
+
+opciones =["opcion_1", "opcion_2", "opcion_3", "opcion_4", "opcion_5", "opcion_6", "opcion_7", "opcion_8", "opcion_9", "opcion_10", "opcion_11", "opcion_12"];
+
+
+console.log(reducirAOcho(opciones));
