@@ -21,7 +21,7 @@ server.post("/Bot",(req,res)=>{
     let contexto = "nada"
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
-    let opciones=["Opcion_1", "Opcion_2", "Opcion_3", "Opcion_4"];
+    let opciones=DialogLib.reducirAOcho(["Opcion_1", "Opcion_2", "Opcion_3","Opcion_4", "Opcion_5", "Opcion_6", "Opcion_7", "Opcion_8","Opcion_7", "Opcion_8"]);
     
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
@@ -42,14 +42,16 @@ server.post("/Bot",(req,res)=>{
         resultado=DialogLib.respuestaBasica(textoEnviar);
     } else if  (contexto==="menu"){
         resultado=DialogLib.respuestaBasica("Esta en el menu principal de serivicios");
+        DialogLib.addSuggestions(resultado, opciones);
+        
     }else{
         resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
-    DialogLib.addSuggestions(resultado, opciones);
+    
     res.json(resultado);
 });
 
-const local=true;
+const local=false;
 if(local){
     server.listen((process.env.PORT || 8000), ()=>{
         console.log("Servidor funcionando");

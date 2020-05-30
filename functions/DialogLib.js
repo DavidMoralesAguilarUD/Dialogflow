@@ -38,11 +38,26 @@ function OptionsListGoogle(opciones){
     }
     return res;
 }
+
+function reducirAOcho(opciones){
+    let res = [];
+    let i = 0;
+    let pos;
+    while (i<8&&opciones.length>0){
+        pos=Math.floor(Math.random()*opciones.length);
+        res.push(opciones[pos]);
+        opciones.splice(pos, 1);
+        i++;
+    }
+    return res;
+    
+}
 function hola(nombre) {
     console.log("Encantado de conocerte " + nombre);
 }
 module.exports = {
     hola: hola,
     respuestaBasica: respuestaBasica,
-    addSuggestions: addSuggestions
+    addSuggestions: addSuggestions,
+    reducirAOcho: reducirAOcho
 }
