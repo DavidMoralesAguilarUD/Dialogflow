@@ -39,6 +39,26 @@ function OptionsListGoogle(opciones){
     return res;
 }
 
+function addCard(res, titulo, texto, imagen, url) {
+    res.fulfillmentMessages.push(
+        {
+            "platform": "ACTIONS_ON_GOOGLE",
+            "basicCard": {
+                "image": {
+                    "imageUri": imagen,
+                    "accessibilityText": titulo
+                },
+                "buttons": [
+                    {
+                        "title": `Más info. ${titulo}`,
+                        "openUriAction": {
+                            "uri": url
+                        }
+                    }
+                ]
+            }
+        });
+}
 function reducirAOcho(opciones){
     let res = [];
     let i = 0;
@@ -59,5 +79,6 @@ module.exports = {
     hola: hola,
     respuestaBasica: respuestaBasica,
     addSuggestions: addSuggestions,
-    reducirAOcho: reducirAOcho
+    reducirAOcho: reducirAOcho,
+    addCard: addCard
 }
