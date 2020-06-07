@@ -7,7 +7,8 @@ const path=require('path');
 const DialogLib=require('./DialogLib');
 
 // Variables Globales
-global.cursos =require("./BD-CursosDiplomados.json");
+global.diplomados=require("./BD-Diplomado.json");
+global.cursos=require("./BD-Curso.json");
 const server= express();
 server.use(bodyParser.urlencoded({
     extended:true
@@ -45,19 +46,37 @@ server.post("/Bot",(req,res)=>{
         resultado=DialogLib.respuestaBasica("Esta en el menu principal de serivicios");
         DialogLib.addSuggestions(resultado, opciones);
         
-    } else if (contexto==="curso"){
-        try{
-            let curso="";
-            curso=req.body.queryResult.parameters.curso;
-            textoEnviar="Nombre del Curso: "+ global.cursos[curso].Nombre + " Tipo:  " + global.cursos[curso].Tipo + " Descripción " + global.cursos[curso].Descripcion;
-            let imagen = global.cursos[curso].Imagen;
-            let url=global.cursos[curso].url;
-            resultado=DialogLib.respuestaBasica(textoEnviar);
-            DialogLib.addCard(resultado,curso,textoEnviar,imagen,url);
+    } else if (contexto === "diplomado") {
+        try {
+            let diplomado = "";
 
-        } catch(error){
-            textoEnviar="No conozco ese curso/diplomado";
-            resultado=DialogLib.respuestaBasica(textoEnviar);
+            diplomado = req.body.queryResult.parameters.diplomado;
+            textoEnviar = "Nombre del diplomado: " + global.diplomados[diplomado].Nombre +global.diplomados[diplomado].Descripcion;
+            let imagen = global.diplomados[diplomado].Imagen;
+            let url = global.diplomados[diplomado].url;
+            resultado = DialogLib.respuestaBasica(textoEnviar);
+            DialogLib.addCard(resultado, diplomado, imagen, url);
+            console.log(diplomado);
+
+        } catch (error) {
+            textoEnviar = "No conozco ese diplomado";
+            resultado = DialogLib.respuestaBasica(textoEnviar);
+        }
+    } else if (contexto === "curso") {
+        try {
+            let curso = "";
+
+            curso = req.body.queryResult.parameters.curso;
+            textoEnviar = "Nombre del curso: " + global.cursos[curso].Nombre + global.cursos[curso].Tipo + " Descripción " + global.cursos[curso].Descripcion;
+            let imagen = global.cursos[curso].Imagen;
+            let url = global.cursos[curso].url;
+            resultado = DialogLib.respuestaBasica(textoEnviar);
+            DialogLib.addCard(resultado, curso,imagen, url);
+
+        } catch (error) {
+
+            textoEnviar = "No conozco ese curso";
+            resultado = DialogLib.respuestaBasica(textoEnviar);
         }
     }else{
         resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
