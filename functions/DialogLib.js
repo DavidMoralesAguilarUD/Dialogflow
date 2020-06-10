@@ -63,7 +63,7 @@ function reducirAOcho(opciones){
     let res = [];
     let i = 0;
     let pos;
-    while (i<8&&opciones.length>0){
+    while (i<4&&opciones.length>0){
         pos=Math.floor(Math.random()*opciones.length);
         res.push(opciones[pos]);
         opciones.splice(pos, 1);
