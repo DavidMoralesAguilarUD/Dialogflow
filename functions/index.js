@@ -3,13 +3,13 @@ const functions = require('firebase-functions');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path=require('path');
-
+const menu = require('./menu.js');
 const DialogLib=require('./DialogLib');
 
 // Variables Globales
 global.diplomados=require("./BD-Diplomado.json");
 global.cursos=require("./BD-Curso.json");
-const server= express();
+let server= express();
 server.use(bodyParser.urlencoded({
     extended:true
 }));
@@ -20,10 +20,10 @@ server.get('/', (req,res)=>{
 });
 
 server.post("/Bot",(req,res)=>{
-    let contexto = "nada"
+    let contexto = "nada";
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
-    let opciones=DialogLib.reducirAOcho(["Opcion", "Opcion", "Opcion","Opcion", "Opcion", "Opcion", "Opcion", "Opcion_8","Opcion_7", "Opcion_8"]);
+    let opciones=DialogLib.reducirAOcho(["Programas", "Facultad", "Decanatura","Investigación", "Extensión", "Contactenos", "Ayuda", "Resolución 69/2018 CA"]);
     
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
@@ -32,6 +32,7 @@ server.post("/Bot",(req,res)=>{
     } catch(error){
         console.log("Error contexto vacio:"+error);
     }
+    
     
     if(req.body.queryResult.parameters){
         console.log("parametros:"+req.body.queryResult.parameters);
@@ -46,10 +47,11 @@ server.post("/Bot",(req,res)=>{
         resultado=DialogLib.respuestaBasica("Esta en el menu principal de serivicios");
         DialogLib.addSuggestions(resultado, opciones);
         
-    } else if (contexto === "diplomado") {
+    } else if (contexto==="Hola"){
+        resultado = menu.daropciones(res);
+    }else if (contexto === "diplomado") {
         try {
             let diplomado = "";
-
             diplomado = req.body.queryResult.parameters.diplomado;
             textoEnviar = "Nombre del diplomado: " + global.diplomados[diplomado].Nombre +global.diplomados[diplomado].Descripcion;
             let imagen = global.diplomados[diplomado].Imagen;
@@ -81,11 +83,9 @@ server.post("/Bot",(req,res)=>{
     }else{
         resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
-    DialogLib.addSuggestions(resultado, opciones);
-    res.json(resultado);
+     res.json(resultado);
 });
-
-const local=false;
+const local=true;
 if(local){
     server.listen((process.env.PORT || 8000), ()=>{
         console.log("Servidor funcionando");
