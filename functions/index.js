@@ -23,7 +23,7 @@ server.post("/Bot",(req,res)=>{
     let contexto = "nada"
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
-    let opciones=DialogLib.reducirAOcho(["Opcion_1", "Opcion_2", "Opcion_3","Opcion_4", "Opcion_5", "Opcion_6", "Opcion_7", "Opcion_8","Opcion_7", "Opcion_8"]);
+    let opciones=DialogLib.reducirAOcho(["Opcion", "Opcion", "Opcion","Opcion", "Opcion", "Opcion", "Opcion", "Opcion_8","Opcion_7", "Opcion_8"]);
     
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
