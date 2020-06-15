@@ -75,10 +75,47 @@ function reducirAOcho(opciones){
 function hola(nombre) {
     console.log("Encantado de conocerte " + nombre);
 }
+function addCard2(textoEnviar, titulo, imagen, url) {
+    let respuesta = {
+        "fulfillmentText": textoEnviar,
+        "fulfillmentMessages": [
+            {
+                "platform": "ACTIONS_ON_GOOGLE",
+                "basicCard": {
+                    "title": titulo, 
+                    "formattedText": textoEnviar,
+                    "image": {
+                        "imageUri": imagen,
+                        "accessibilityText": titulo
+                    },
+                    "buttons": [
+                        {
+                            "title": `Más info. ${titulo}`,
+                            "openUriAction": {
+                                "uri": url
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "text": {
+                    "text": [
+                        textoEnviar
+                    ]
+                }
+            }
+        ]
+    }
+    return respuesta;
+}
+
+
 module.exports = {
     hola: hola,
     respuestaBasica: respuestaBasica,
     addSuggestions: addSuggestions,
     reducirAOcho: reducirAOcho,
-    addCard: addCard
+    addCard: addCard,
+    addCard2: addCard2
 }
