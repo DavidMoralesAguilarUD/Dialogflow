@@ -1,10 +1,10 @@
 'use strict'
 const DialogLib=require('./DialogLib');
 module.exports = {
-    daropciones: function(textoEnviar,resultado){
+    daropciones: function(resultado, textoEnviar){
         textoEnviar="Segundo Saludo";
         resultado=DialogLib.respuestaBasica(textoEnviar);
-        return textoEnviar, resultado;
+        return resultado;
     }
    
 }

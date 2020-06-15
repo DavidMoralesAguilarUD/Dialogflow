@@ -4,7 +4,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path=require('path');
 const menu = require('./menu.js');
-const DialogLib=require('./DialogLib');
+const Diplomado = require('./Diplomado.js');
+const DialogLib= require('./DialogLib');
 
 // Variables Globales
 global.diplomados=require("./BD-Diplomado.json");
@@ -20,13 +21,18 @@ server.get('/', (req,res)=>{
 });
 
 server.post("/Bot",(req,res)=>{
+    // VARIABLES PARAMETRICAS BASICAS
     let contexto = "nada";
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
+    let diplomado = req.body.queryResult.parameters.diplomado;
+    let imagen = global.diplomados[diplomado].Imagen;
+    let url = global.diplomados[diplomado].url;
     let opciones=DialogLib.reducirAOcho(["Programas", "Facultad", "Decanatura","Investigación", "Extensión", "Contactenos", "Ayuda", "Resolución 69/2018 CA"]);
     
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
+        
         contexto=req.body.queryResult.action;
         textoEnviar=`recibida peticion de accion: ${contexto}`;
     } catch(error){
@@ -51,15 +57,15 @@ server.post("/Bot",(req,res)=>{
         resultado = menu.daropciones(res);
     }else if (contexto === "diplomado") {
         try {
-            let diplomado = "";
-            diplomado = req.body.queryResult.parameters.diplomado;
-            textoEnviar = "Nombre del diplomado: " + global.diplomados[diplomado].Nombre +global.diplomados[diplomado].Descripcion;
-            let imagen = global.diplomados[diplomado].Imagen;
-            let url = global.diplomados[diplomado].url;
-            resultado = DialogLib.respuestaBasica(textoEnviar);
-            DialogLib.addCard(resultado, diplomado, imagen, url);
-            console.log(diplomado);
-
+            
+            
+            //textoEnviar = "Nombre del diplomado: " + global.diplomados[diplomado].Nombre +global.diplomados[diplomado].Descripcion;
+           
+            //DialogLib.respuestaBasica(textoEnviar);
+            //resultado = DialogLib.addCard2(textoEnviar, diplomado, imagen, url);
+           
+            resultado = Diplomado.dardiplomado(res, diplomado, textoEnviar, imagen,url);
+            //console.log(res);
         } catch (error) {
             textoEnviar = "No conozco ese diplomado";
             resultado = DialogLib.respuestaBasica(textoEnviar);
@@ -67,7 +73,6 @@ server.post("/Bot",(req,res)=>{
     } else if (contexto === "curso") {
         try {
             let curso = "";
-
             curso = req.body.queryResult.parameters.curso;
             textoEnviar = "Nombre del curso: " + global.cursos[curso].Nombre + global.cursos[curso].Tipo + " Descripción " + global.cursos[curso].Descripcion;
             let imagen = global.cursos[curso].Imagen;
