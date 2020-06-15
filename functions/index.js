@@ -1,4 +1,4 @@
- 'use strict'
+'use strict'
 const functions = require('firebase-functions');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -8,8 +8,8 @@ const Diplomado = require('./Diplomado.js');
 const DialogLib= require('./DialogLib');
 
 // Variables Globales
-global.diplomados=require("./BD-Diplomado.json");
-global.cursos=require("./BD-Curso.json");
+ global.diplomados=require("./BD-Diplomado.json");
+global.cursos=require("./BD-Curso.json"); 
 let server= express();
 server.use(bodyParser.urlencoded({
     extended:true
@@ -52,24 +52,11 @@ server.post("/Bot",(req,res)=>{
     } else if  (contexto==="menu"){
         resultado=DialogLib.respuestaBasica("Esta en el menu principal de serivicios");
         DialogLib.addSuggestions(resultado, opciones);
-        
+    
     } else if (contexto==="Hola"){
         resultado = menu.daropciones(res);
     }else if (contexto === "diplomado") {
-        try {
-            
-            
-            //textoEnviar = "Nombre del diplomado: " + global.diplomados[diplomado].Nombre +global.diplomados[diplomado].Descripcion;
-           
-            //DialogLib.respuestaBasica(textoEnviar);
-            //resultado = DialogLib.addCard2(textoEnviar, diplomado, imagen, url);
-           
-            resultado = Diplomado.dardiplomado(res, diplomado, textoEnviar, imagen,url);
-            //console.log(res);
-        } catch (error) {
-            textoEnviar = "No conozco ese diplomado";
-            resultado = DialogLib.respuestaBasica(textoEnviar);
-        }
+        resultado = Diplomado.dardiplomado(res, diplomado, textoEnviar, imagen,url);
     } else if (contexto === "curso") {
         try {
             let curso = "";
@@ -88,13 +75,20 @@ server.post("/Bot",(req,res)=>{
     }else{
         resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
-     res.json(resultado);
-});
-const local=true;
+     res.json();
+}); 
+const local=false;
 if(local){
     server.listen((process.env.PORT || 8000), ()=>{
         console.log("Servidor funcionando");
     });
 } else {
     exports.Bot=functions.https.onRequest(server); //http://localhost:8000
-}
+} 
+
+// // Create and Deploy Your First Cloud Functions
+// // https://firebase.google.com/docs/functions/write-firebase-functions
+//
+/* exports.Bot = functions.https.onRequest((request, response) => {
+response.send("Hello from Firebase!");
+}) */
