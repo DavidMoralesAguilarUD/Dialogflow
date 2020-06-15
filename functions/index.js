@@ -5,10 +5,11 @@ const bodyParser = require('body-parser');
 const path=require('path');
 const menu = require('./menu.js');
 const Diplomado = require('./Diplomado.js');
+const Curso =require('./Curso.js');
 const DialogLib= require('./DialogLib');
 
 // Variables Globales
- global.diplomados=require("./BD-Diplomado.json");
+global.diplomados=require("./BD-Diplomado.json");
 global.cursos=require("./BD-Curso.json"); 
 let server= express();
 server.use(bodyParser.urlencoded({
@@ -21,15 +22,26 @@ server.get('/', (req,res)=>{
 });
 
 server.post("/Bot",(req,res)=>{
-    // VARIABLES PARAMETRICAS BASICAS
+    
     let contexto = "nada";
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
-    let diplomado = req.body.queryResult.parameters.diplomado;
-    let imagen = global.diplomados[diplomado].Imagen;
-    let url = global.diplomados[diplomado].url;
     let opciones=DialogLib.reducirAOcho(["Programas", "Facultad", "Decanatura","Investigación", "Extensión", "Contactenos", "Ayuda", "Resolución 69/2018 CA"]);
+    // VARIABLES PARAMETRICAS (INTENCIONES) BASICAS
+    // DIPLOMADO
+    let diplomado; 
+    let urlDiplomado;
+    let imagenDiplomado; 
+    // CURSO
+    let curso; 
+    let imagenCurso;
+    let urlCurso;
+    // VARIABLES DE LOS ARCHVOS JSON
     
+    /* let imagenCurso = '';
+    ; */
+   
+    /* ; */
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
         
@@ -56,28 +68,29 @@ server.post("/Bot",(req,res)=>{
     } else if (contexto==="Hola"){
         resultado = menu.daropciones(res);
     }else if (contexto === "diplomado") {
-        resultado = Diplomado.dardiplomado(res, diplomado, textoEnviar, imagen,url);
+        if (diplomado =req.body.queryResult.parameters.diplomado){
+            imagenDiplomado= global.diplomados[diplomado].Imagen;
+            urlDiplomado = global.diplomados[diplomado].url;
+            resultado = Diplomado.dardiplomado(res, diplomado, textoEnviar, imagenDiplomado,urlDiplomado);
+        } else {
+            console.log("Error")
+;        }
+        
     } else if (contexto === "curso") {
-        try {
-            let curso = "";
-            curso = req.body.queryResult.parameters.curso;
-            textoEnviar = "Nombre del curso: " + global.cursos[curso].Nombre + global.cursos[curso].Tipo + " Descripción " + global.cursos[curso].Descripcion;
-            let imagen = global.cursos[curso].Imagen;
-            let url = global.cursos[curso].url;
-            resultado = DialogLib.respuestaBasica(textoEnviar);
-            DialogLib.addCard(resultado, curso,imagen, url);
-
-        } catch (error) {
-
-            textoEnviar = "No conozco ese curso";
-            resultado = DialogLib.respuestaBasica(textoEnviar);
-        }
+        if(curso = req.body.queryResult.parameters.curso){
+            imagenCurso = global.cursos[curso].Imagen;
+            urlCurso = global.cursos[curso].url
+            resultado = Curso.darCurso(res, curso, textoEnviar, imagenCurso, urlCurso);
+        }else {
+            console.log("Error")
+;        }
+        
     }else{
         resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
-     res.json();
+     res.json(resultado);
 }); 
-const local=false;
+const local=true;
 if(local){
     server.listen((process.env.PORT || 8000), ()=>{
         console.log("Servidor funcionando");
