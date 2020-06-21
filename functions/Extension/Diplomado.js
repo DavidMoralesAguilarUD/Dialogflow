@@ -1,17 +1,17 @@
 'use strict'
-const DialogLib=require('./DialogLib');
+const DialogLib=require('../DialogLib');
+
 module.exports = {
     
-    dardiplomado: function(resultado, diplomado, textoEnviar, imagen,url){
+    dardiplomado: function(resultado, diplomado, textoEnviar, imagenDiplomado,urlDiplomado){
         try {
             textoEnviar = "Nombre del diplomado: " + global.diplomados[diplomado].Nombre;
-            resultado = DialogLib.addCard2(textoEnviar, diplomado, imagen, url);
+            resultado = DialogLib.addCard2(textoEnviar, diplomado, imagenDiplomado, urlDiplomado);
             
         } catch (error) {
             textoEnviar = "No conozco ese diplomado";
             resultado = DialogLib.respuestaBasica(textoEnviar);
-        }
-        return resultado;
+        }return resultado;
     }
     
        

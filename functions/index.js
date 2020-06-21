@@ -1,15 +1,20 @@
 'use strict'
+//Variables Constantes
 const functions = require('firebase-functions');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path=require('path');
 const menu = require('./menu.js');
-const Diplomado = require('./Diplomado.js');
+const Diplomado = require('./Extension/Diplomado.js');
+const Curso =require('./Extension/Curso.js');
+const Doctorado = require('./Programas/Posgrados/Doctorado.js')
+
 const DialogLib= require('./DialogLib');
 
 // Variables Globales
- global.diplomados=require("./BD-Diplomado.json");
-global.cursos=require("./BD-Curso.json"); 
+global.diplomados = require("./Extension/BD-Diplomado.json");
+global.cursos = require("./Extension/BD-Curso.json"); 
+global.doctorados = require("./Programas/Posgrados/BD-Doctorado.json");
 let server= express();
 server.use(bodyParser.urlencoded({
     extended:true
@@ -21,14 +26,24 @@ server.get('/', (req,res)=>{
 });
 
 server.post("/Bot",(req,res)=>{
-    // VARIABLES PARAMETRICAS BASICAS
+    
     let contexto = "nada";
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
-    let diplomado = req.body.queryResult.parameters.diplomado;
-    let imagen = global.diplomados[diplomado].Imagen;
-    let url = global.diplomados[diplomado].url;
     let opciones=DialogLib.reducirAOcho(["Programas", "Facultad", "Decanatura","Investigación", "Extensión", "Contactenos", "Ayuda", "Resolución 69/2018 CA"]);
+    // VARIABLES PARAMETRICAS (INTENCIONES) BASICAS
+    // DIPLOMADO
+    let diplomado; 
+    let urlDiplomado;
+    let imagenDiplomado; 
+    // CURSO
+    let curso; 
+    let imagenCurso;
+    let urlCurso;
+    // DOCTORADO
+    let doctorado; 
+    let imagenDoctorado;
+    let urlDoctorado;
     
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
@@ -40,42 +55,52 @@ server.post("/Bot",(req,res)=>{
     }
     
     
-    if(req.body.queryResult.parameters){
-        console.log("parametros:"+req.body.queryResult.parameters);
+    if (req.body.queryResult.parameters) {
+        console.log("parametros:" + req.body.queryResult.parameters);
     } else {
         console.log("Sin Parametros");
     }
 
-    if (contexto==="input.welcome"){
-        textoEnviar="Hola, soy tu ChatBot Virtual UD D";
-        resultado=DialogLib.respuestaBasica(textoEnviar);
-    } else if  (contexto==="menu"){
-        resultado=DialogLib.respuestaBasica("Esta en el menu principal de serivicios");
+    if (contexto === "input.welcome") {
+        textoEnviar = "Hola, soy tu ChatBot Virtual UD D";
+        resultado = DialogLib.respuestaBasica(textoEnviar);
+    } else if (contexto === "menu") {
+        resultado = DialogLib.respuestaBasica("Esta en el menu principal de serivicios");
         DialogLib.addSuggestions(resultado, opciones);
-    
-    } else if (contexto==="Hola"){
+
+    } else if (contexto === "Hola") {
         resultado = menu.daropciones(res);
-    }else if (contexto === "diplomado") {
-        resultado = Diplomado.dardiplomado(res, diplomado, textoEnviar, imagen,url);
-    } else if (contexto === "curso") {
-        try {
-            let curso = "";
-            curso = req.body.queryResult.parameters.curso;
-            textoEnviar = "Nombre del curso: " + global.cursos[curso].Nombre + global.cursos[curso].Tipo + " Descripción " + global.cursos[curso].Descripcion;
-            let imagen = global.cursos[curso].Imagen;
-            let url = global.cursos[curso].url;
-            resultado = DialogLib.respuestaBasica(textoEnviar);
-            DialogLib.addCard(resultado, curso,imagen, url);
-
-        } catch (error) {
-
-            textoEnviar = "No conozco ese curso";
-            resultado = DialogLib.respuestaBasica(textoEnviar);
+    } else if (contexto === "diplomado") {
+        if ((diplomado = req.body.queryResult.parameters.diplomado)) {
+            imagenDiplomado = global.diplomados[diplomado].Imagen;
+            urlDiplomado = global.diplomados[diplomado].url;
+            resultado = Diplomado.dardiplomado(res, diplomado, textoEnviar, imagenDiplomado, urlDiplomado);
+        } else {
+            console.log("Error");
         }
+
+    } else if (contexto === "curso") {
+        if ((curso = req.body.queryResult.parameters.curso)) {
+            imagenCurso = global.cursos[curso].Imagen;
+            urlCurso = global.cursos[curso].url;
+            resultado = Curso.darCurso(res, curso, textoEnviar, imagenCurso, urlCurso);
+        } else {
+            console.log("Error");
+        }
+    } else if (contexto === "doctorado") {
+        if ((doctorado = req.body.queryResult.parameters.doctorado)) {
+            imagenDoctorado = global.doctorados[doctorado].Imagen;
+            urlDoctorado = global.doctorados[doctorado].url;
+            resultado = Doctorado.mostrarDoctorado(res, doctorado, textoEnviar, imagenDoctorado, urlDoctorado);
+            console.log(resultado);
+        } else {
+            console.log("Error");
+        }
+             
     }else{
         resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
-     res.json();
+     res.json(resultado);
 }); 
 const local=false;
 if(local){

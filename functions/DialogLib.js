@@ -109,6 +109,41 @@ function addCard2(textoEnviar, titulo, imagen, url) {
     }
     return respuesta;
 }
+function addCardDoctorado(textoEnviar, titulo, imagen,url){
+    let respuesta = {
+        "fulfillmentText": textoEnviar,
+        "fulfillmentMessages": [
+            {
+                "platform": "ACTIONS_ON_GOOGLE",
+                "basicCard": {
+                    "title": titulo, 
+                    "formattedText": textoEnviar,
+                    "image": {
+                        "imageUri": imagen,
+                        "accessibilityText": titulo
+                    },
+                    "buttons": [
+                        {
+                            "title": `Más info. ${titulo}`,
+                            "openUriAction": {
+                                "uri": url
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "text": {
+                    "text": [
+                        textoEnviar
+                    ]
+                }
+            }
+        ]
+    }
+    return respuesta;
+}
+
 
 
 module.exports = {
@@ -117,5 +152,6 @@ module.exports = {
     addSuggestions: addSuggestions,
     reducirAOcho: reducirAOcho,
     addCard: addCard,
-    addCard2: addCard2
+    addCard2: addCard2,
+    addCardDoctorado: addCardDoctorado
 }
