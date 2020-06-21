@@ -1,5 +1,5 @@
 'use strict'
-const DialogLib=require('./DialogLib');
+const DialogLib=require('../DialogLib');
 
 module.exports = {
     
