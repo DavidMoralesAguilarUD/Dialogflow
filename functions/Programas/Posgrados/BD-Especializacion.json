@@ -1,0 +1,82 @@
+{
+    "Avalúos": {
+        "id_Espe": "1",
+        "Nombre": "Especialización en Avalúos",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=250",
+        "Descripcion": "El programa de la especialización está dirigido a peritos avaluadores, profesionales auxiliares de la justicia y vinculados al sector de la finca raíz, catastro, construcción, inmobiliario, funcionarios de impuestos, lonjas, empresarios, liquidadores, entidades financieras, contadores, contralorías, fiscalías, valorización, auditores y auxiliares de justicia, que requieran capacitarse y actualizarse en las áreas de avalúos urbanos, rurales, industriales, activos, maquinaria y equipo. Se requiere título de pregrado en cualquier área.",
+        "Tipo": "Especialización",
+        "Imagen": "https://ingenieria.udistrital.edu.co/pluginfile.php/549/mod_page/content/70/banner%20avaluos.png"
+    },
+    "Bioingeniería": {
+        "id_Espe": "2",
+        "Nombre": "Especialización en Bioingeniería",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=260",
+        "Descripcion": "La Especialización profundiza en las diversas aplicaciones relacionadas con el equipamiento electromédico en general, y en las aplicaciones de la computación, el procesamiento de señales e imágenes, entre otros.",
+        "Tipo": "Especialización",
+        "Imagen": "https://ingenieria.udistrital.edu.co/pluginfile.php/580/mod_page/content/70/Banner%20%281%29.png"
+    },
+    "Gestión Proyectos Ingeniería": {
+        "id_Espe": "3",
+        "Nombre": "Especialización en Gestión Proyectos Ingeniería",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=273",
+        "Descripcion": "La Especialización en Gestión de Proyectos de Ingeniería forma profesionales de alto nivel capacitándolos con las herramientas y técnicas modernas en la formulación y evaluación de proyectos.",
+        "Tipo": "Especialización",
+        "Imagen": "https://ingenieria.udistrital.edu.co/pluginfile.php/113393/mod_resource/content/1/data1/tooltips/espgestionproyectosadmisiones.jpg"
+    },
+    "Higiene Seguridad Salud Trabajo": {
+        "id_Espe": "4",
+        "Nombre": "Especialización en Higiene, Seguridad y Salud en el Trabajo",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=288",
+        "Descripcion": "El Postgrado forma especialistas capaces de generar cambios organizacionales en las áreas de Seguridad, Salud en el Trabajo, Higiene Industrial y Ergonomía. También proporciona herramientas médicas, de ingeniería, ambiental, de calidad y de la legislación, para dar soluciones a problemáticas presentadas en las instituciones.",
+        "Tipo": "Especialización",
+        "Imagen": "No disponible"
+    },
+    "Informática Automática Industrial": {
+        "id_Espe": "5",
+        "Nombre": "Especialización en Informática y Automática Industrial",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=290",
+        "Descripcion": "El proyecto curricular se denomina Especialización en Informática y Automática Industrial es coherente con la naturaleza del campo de conocimiento en cuanto aborda temas relacionados estrictamente con la automatización haciendo énfasis en la informática industrial en cada uno de sus espacios académicos, teniendo en cuenta que la convergencia de las comunicaciones cada día establece condiciones de conectividad entre equipos, instrumentos y sensores presentes en un sistema automatizado que permite el manejo y la gestión de datos para la alimentación de sistemas enfocados a la toma de decisiones. Por supuesto, la base de todo sistema automatizado en el conocimiento de los procesos y la aplicación de técnicas y tecnologías que permitan la automatización del mismo.",
+        "Tipo": "Especialización",
+        "Imagen": "No disponible"
+    },
+    "Ingeniería Software": {
+        "id_Espe": "6",
+        "Nombre": "Especialización en Ingeniería Software",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=299",
+        "Descripcion": "El postgrado se sustenta principalmente en los siguientes aspectos: Una parte Tecnológica donde se familiariza al estudiante con el estado actual y tendencias de la tecnología informática y los productos más usuales, una parte metodológica en donde el estudiante estará en capacidad de identificar los principios, fundamentos, métodos, procedimientos y tecnología básica de la ingeniería de software, el análisis y diseño de sistemas, conocer las principales metodologías de la ingeniería de software y planificar, administrar, controlar y probar proyectos de software y una parte de gestión y administración donde se desarrolla una visión de la informática en términos de recurso y posibilidad estratégica de desarrollo para las organizaciones",
+        "Tipo": "Especialización",
+        "Imagen": "No disponible"
+    },
+    "Proyectos Info": {
+        "id_Espe": "7",
+        "Nombre": "Especialización en Proyectos Informáticos",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=15553",
+        "Descripcion": "La Especialización en Proyectos Informáticos nace al reconocer en el mercado la necesidad de profesionales con capacidad de planear, diseñar, implementar, y principalmente gerenciar, gestionar y liderar proyectos de informática.",
+        "Tipo": "Especialización",
+        "Imagen": "https://ingenieria.udistrital.edu.co/pluginfile.php/17910/mod_page/intro/Banner_especializacion_proy.jpg"
+    },
+    "Sistemas Información Geográfica": {
+        "id_Espe": "8",
+        "Nombre": "Especialización en Sistemas de Información Geográfica",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=314",
+        "Descripcion": "La inclusión de los Sistemas de Información Geográfica en el mundo laboral implica la necesidad de profesionales que sepan desarrollar y moverse dentro de estas nuevas tecnologías. Carreras como Geografía, Catastro, Geología, Topografía, Telecomunicaciones, Biología, Cartografía y Geodesia, encuentran en los SIG una nueva vía de trabajo.",
+        "Tipo": "Especialización",
+        "Imagen": "No disponible"
+    },
+    "Telecomunicaciones Móviles": {
+        "id_Espe": "9",
+        "Nombre": "Especialización en Telecomunicaciones Móviles",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=323",
+        "Descripcion": "Dentro de la década de las comunicaciones inalámbricas, donde las Telecomunicaciones Móviles determinarán el desarrollo inmediato del mundo en todos los órdenes, La Universidad ofrece un programa de Especialización en Telecomunicaciones Móviles de gran actualidad.",
+        "Tipo": "Especialización",
+        "Imagen": "https://ingenieria.udistrital.edu.co/pluginfile.php/668/mod_page/content/24/MOVILES.png"
+    },
+    "Teleinformática": {
+        "id_Espe": "10",
+        "Nombre": "Especialización en Teleinformática",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=335",
+        "Descripcion": "La Especialización en Teleinformática es un programa reconocido a nivel nacional. Cuenta con profesores altamente calificados que hacen de él un programa de alto nivel académico.",
+        "Tipo": "Especialización",
+        "Imagen": "https://ingenieria.udistrital.edu.co/pluginfile.php/683/mod_page/content/32/teleinformatica.png"
+    }
+}

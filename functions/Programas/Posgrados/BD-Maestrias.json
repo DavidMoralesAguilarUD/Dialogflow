@@ -1,0 +1,34 @@
+{
+    "Ciencias Información Comunicaciones": {
+        "id_Maestria": "1",
+        "Nombre": "Maestría en Ciencias de la Información y las Comunicaciones",
+        "url": "https://rita.udistrital.edu.co/mciencias/",
+        "Descripcion": "La Maestría en Ciencias de la Información y las Comunicaciones es un programa académico con más de 30 años de historia, adscrito a la facultad de Ingeniería de la Universidad Distrital Francisco José de Caldas (Bogotá - Colombia), institución pública con acreditación de alta calidad (resolución No. 23096 del 15 de diciembre de 2016). Regularmente cuenta con 350 estudiantes activos (apróximadamente), distribuidos en los 3 énfasis ofrecidos: Ingeniería de software, Teleinformática y Geomática. Estos énfasis pueden ser cursados bajo dos modalidades: Investigación o Profundización (registro calificado SNIES 17528 del Ministerio de educación).",
+        "Tipo": "Maestría",
+        "Imagen": "https://rita.udistrital.edu.co/mciencias/images/MCIC_azul.png"
+    },
+    "Ingeniería Industrial": {
+        "id_Maestria": "2",
+        "Nombre": "Maestría en Ingeniería Industrial",
+        "url": "https://rita.udistrital.edu.co/mindustrial/",
+        "Descripcion": "La denominación de Maestría en Ingeniería industrial tiene sus fundamentos en el término Magíster, en otras palabras ser Maestro en las áreas de Ingeniería. A su vez, la Ingeniería Industrial se ocupa de la planificación, el mejoramiento y la instalación de sistemas integrados por hombres, materiales y equipos. Exige conocimientos especializados y una sólida formación en ciencias, matemáticas, física y sociales, junto con los principios y los métodos del análisis y del proyecto, para especificar, predecir y evaluar los resultados que habrán de obtenerse de tales sistemas, con lo cual el título de Magíster en Ingeniería Industrial conlleva uno de los valores agregados más importantes, generadores de conocimiento: La investigación, principal afluente en el proyecto.",
+        "Tipo": "Maestría",
+        "Imagen": "https://rita.udistrital.edu.co/mindustrial/wp-content/uploads/2020/06/Sin-t%C3%ADtulo.png"
+    },
+    "Ingeniería Énfasis Ingeniería Electrónica": {
+        "id_Maestria": "3",
+        "Nombre": "Maestría en Ingeniería énfasis en Ingeniería Electrónica",
+        "url": "https://maestriaeningenieria.udistrital.edu.co/",
+        "Descripcion": "",
+        "Tipo": "Maestría",
+        "Imagen": "No tiene"
+    },
+    "Telecomunicaciones Móviles": {
+        "id_Maestria": "4",
+        "Nombre": "Maestría en Telecomunicaciones Móviles",
+        "url": "https://mtmoviles.udistrital.edu.co/",
+        "Descripcion": "La Maestría en Telecomunicaciones Móviles, es el resultado de la evolución natural de los proyectos curriculares de Ingeniería Electrónica y la Especialización en Telecomunicaciones Móviles vinculados a la Facultad de Ingeniería de la Universidad Distrital, siendo así una expresión del compromiso permanente con la academia y la investigación de la institución y de su cuerpo docente, que por más de sesenta años han participado exitosamente en la enseñanza de la Ingeniería Electrónica y sus áreas de aplicación en la Facultad de Ingeniería.",
+        "Tipo": "Maestría",
+        "Imagen": "https://mtmoviles.udistrital.edu.co/wp-content/uploads/2017/08/logo-sin-fondo.png"
+    }
+}

@@ -7,14 +7,19 @@ const path=require('path');
 const menu = require('./menu.js');
 const Diplomado = require('./Extension/Diplomado.js');
 const Curso =require('./Extension/Curso.js');
-const Doctorado = require('./Programas/Posgrados/Doctorado.js')
-
+const Doctorado = require('./Programas/Posgrados/Doctorado.js');
+const Maestria = require('./Programas/Posgrados/Maestria.js');
+const Especialización = require('./Programas/Posgrados/Especializacion.js');
 const DialogLib= require('./DialogLib');
+const Especializacion = require('./Programas/Posgrados/Especializacion.js');
+
 
 // Variables Globales
 global.diplomados = require("./Extension/BD-Diplomado.json");
 global.cursos = require("./Extension/BD-Curso.json"); 
 global.doctorados = require("./Programas/Posgrados/BD-Doctorado.json");
+global.maestrias = require("./Programas/Posgrados/BD-Maestrias.json");
+global.especializaciones = require("./Programas/Posgrados/BD-Especializacion.json");
 let server= express();
 server.use(bodyParser.urlencoded({
     extended:true
@@ -32,22 +37,28 @@ server.post("/Bot",(req,res)=>{
     let textoEnviar=`recibida peticion post incorrecta`;
     let opciones=DialogLib.reducirAOcho(["Programas", "Facultad", "Decanatura","Investigación", "Extensión", "Contactenos", "Ayuda", "Resolución 69/2018 CA"]);
     // VARIABLES PARAMETRICAS (INTENCIONES) BASICAS
-    // DIPLOMADO
-    let diplomado; 
-    let urlDiplomado;
-    let imagenDiplomado; 
-    // CURSO
-    let curso; 
-    let imagenCurso;
-    let urlCurso;
     // DOCTORADO
     let doctorado; 
     let imagenDoctorado;
     let urlDoctorado;
-    
+    // MAESTRIA
+    let maestria;
+    let imagenMaestria;
+    let urlMaestria;
+    // ESPECIALIZCIÓN
+    let especializacion;
+    let imagenEspe;
+    let urlEspe;
+     // DIPLOMADO
+     let diplomado; 
+     let urlDiplomado;
+     let imagenDiplomado; 
+     // CURSO
+     let curso; 
+     let imagenCurso;
+     let urlCurso;
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
-        
         contexto=req.body.queryResult.action;
         textoEnviar=`recibida peticion de accion: ${contexto}`;
     } catch(error){
@@ -96,7 +107,25 @@ server.post("/Bot",(req,res)=>{
         } else {
             console.log("Error");
         }
-             
+    
+    } else if (contexto === "maestria"){
+        if((maestria = req.body.queryResult.parameters.maestria)){
+            imagenMaestria = global.maestrias[maestria].Imagen;
+            urlMaestria = global.maestrias[maestria].url;
+            resultado = Maestria.mostrarMaestria(res, maestria, textoEnviar, imagenMaestria, urlMaestria);
+
+        } else {
+            console.log("Error");
+        }
+    } else if (contexto === "especializacion"){
+        if((especializacion = req.body.queryResult.parameters.especializacion)){
+            imagenEspe = global.especializaciones[especializacion].Imagen;
+            urlEspe = global.especializaciones[especializacion].url;
+            resultado = Especializacion.mostrarEspecializacion(res, especializacion, textoEnviar, imagenEspe, urlEspe);
+        } else {
+            console.log("Error");
+        }
+                
     }else{
         resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
