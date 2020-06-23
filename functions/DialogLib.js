@@ -72,9 +72,6 @@ function reducirAOcho(opciones){
     return res;
     
 }
-function hola(nombre) {
-    console.log("Encantado de conocerte " + nombre);
-}
 function addCard2(textoEnviar, titulo, imagen, url) {
     let respuesta = {
         "fulfillmentText": textoEnviar,
@@ -109,7 +106,7 @@ function addCard2(textoEnviar, titulo, imagen, url) {
     }
     return respuesta;
 }
-function addCardDoctorado(textoEnviar, titulo, imagen,url){
+function addCardPosgrados(textoEnviar, titulo, imagen,url){
     let respuesta = {
         "fulfillmentText": textoEnviar,
         "fulfillmentMessages": [
@@ -147,11 +144,10 @@ function addCardDoctorado(textoEnviar, titulo, imagen,url){
 
 
 module.exports = {
-    hola: hola,
     respuestaBasica: respuestaBasica,
     addSuggestions: addSuggestions,
     reducirAOcho: reducirAOcho,
     addCard: addCard,
     addCard2: addCard2,
-    addCardDoctorado: addCardDoctorado
+    addCardPosgrados: addCardPosgrados
 }
