@@ -16,7 +16,7 @@ const Especializacion = require('./Programas/Posgrados/Especializacion.js');
 
 // Variables Globales
 global.diplomados = require("./Extension/BD-Diplomado.json");
-global.cursos = require("./Extension/BD-Curso.json"); 
+global.cursos = require("./Extension/BD-Curso.json");
 global.doctorados = require("./Programas/Posgrados/BD-Doctorado.json");
 global.maestrias = require("./Programas/Posgrados/BD-Maestrias.json");
 global.especializaciones = require("./Programas/Posgrados/BD-Especializacion.json");
@@ -31,14 +31,15 @@ server.get('/', (req,res)=>{
 });
 
 server.post("/Bot",(req,res)=>{
-    
+
     let contexto = "nada";
     let resultado;
     let textoEnviar=`recibida peticion post incorrecta`;
-    let opciones=DialogLib.reducirAOcho(["Programas", "Facultad", "Decanatura","Investigación", "Extensión", "Contactenos", "Ayuda", "Resolución 69/2018 CA"]);
+    let opciones=DialogLib.reducirAOcho(["Maestria en Telecomunicaciones Móviles", "Especialización en Avaluos ",
+        "Bioingeniería","Maestria en Ingeniería Industrial","Doctorado", "Python", "Diplomado en Telesalud"]);
     // VARIABLES PARAMETRICAS (INTENCIONES) BASICAS
     // DOCTORADO
-    let doctorado; 
+    let doctorado;
     let imagenDoctorado;
     let urlDoctorado;
     // MAESTRIA
@@ -49,14 +50,14 @@ server.post("/Bot",(req,res)=>{
     let especializacion;
     let imagenEspe;
     let urlEspe;
-     // DIPLOMADO
-     let diplomado; 
-     let urlDiplomado;
-     let imagenDiplomado; 
-     // CURSO
-     let curso; 
-     let imagenCurso;
-     let urlCurso;
+    // DIPLOMADO
+    let diplomado;
+    let urlDiplomado;
+    let imagenDiplomado;
+    // CURSO
+    let curso;
+    let imagenCurso;
+    let urlCurso;
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try{
         contexto=req.body.queryResult.action;
@@ -64,8 +65,8 @@ server.post("/Bot",(req,res)=>{
     } catch(error){
         console.log("Error contexto vacio:"+error);
     }
-    
-    
+
+
     if (req.body.queryResult.parameters) {
         console.log("parametros:" + req.body.queryResult.parameters);
     } else {
@@ -73,14 +74,16 @@ server.post("/Bot",(req,res)=>{
     }
 
     if (contexto === "input.welcome") {
-        textoEnviar = "Hola, soy tu ChatBot Virtual UD D";
+        textoEnviar = "Hola, soy tu ChatBot Virtual UD, escribe servicio para ofrecertelo";
         resultado = DialogLib.respuestaBasica(textoEnviar);
-    } else if (contexto === "menu") {
-        resultado = DialogLib.respuestaBasica("Esta en el menu principal de serivicios");
+
+
+    } else if (contexto === "servicio") {
+        resultado = DialogLib.respuestaBasica("Esta en el menu principal de servicios");
         DialogLib.addSuggestions(resultado, opciones);
 
-    } else if (contexto === "Hola") {
-        resultado = menu.daropciones(res);
+    // } else if (contexto === "Hola") {
+    //     resultado = menu.daropciones(res);
     } else if (contexto === "diplomado") {
         if ((diplomado = req.body.queryResult.parameters.diplomado)) {
             imagenDiplomado = global.diplomados[diplomado].Imagen;
@@ -102,12 +105,12 @@ server.post("/Bot",(req,res)=>{
         if ((doctorado = req.body.queryResult.parameters.doctorado)) {
             imagenDoctorado = global.doctorados[doctorado].Imagen;
             urlDoctorado = global.doctorados[doctorado].url;
-            resultado = Doctorado.mostrarDoctorado(res, doctorado, textoEnviar, imagenDoctorado, urlDoctorado);
+            resultado = Doctorado.mostrarDoctorado(res, doctorado, textoEnviar, imagenDoctorado, urlDoctorado, opciones);
             console.log(resultado);
         } else {
             console.log("Error");
         }
-    
+
     } else if (contexto === "maestria"){
         if((maestria = req.body.queryResult.parameters.maestria)){
             imagenMaestria = global.maestrias[maestria].Imagen;
@@ -125,12 +128,12 @@ server.post("/Bot",(req,res)=>{
         } else {
             console.log("Error");
         }
-                
+
     }else{
         resultado=DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
-     res.json(resultado);
-}); 
+    res.json(resultado);
+});
 const local=false;
 if(local){
     server.listen((process.env.PORT || 8000), ()=>{
@@ -138,7 +141,7 @@ if(local){
     });
 } else {
     exports.Bot=functions.https.onRequest(server); //http://localhost:8000
-} 
+}
 
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions

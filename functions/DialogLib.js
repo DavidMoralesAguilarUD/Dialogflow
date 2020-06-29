@@ -39,12 +39,15 @@ function OptionsListGoogle(opciones){
     return res;
 }
 
-function addCard(res, titulo, imagen, url) {
+function addCard(res, titulo, texto, imagen, url) {
     res.fulfillmentMessages.push(
         {
             "platform": "ACTIONS_ON_GOOGLE",
             "basicCard": {
                 "image": {
+                    "title": titulo,
+                    "subtitle": titulo,
+                    "formattedText": texto,
                     "imageUri": imagen,
                     "accessibilityText": titulo
                 },
