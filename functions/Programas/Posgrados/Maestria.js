@@ -4,7 +4,8 @@ module.exports = {
     mostrarMaestria : function(resultado, maestria, textoEnviar, imagenMaestria, urlMaestria){
         try {
             textoEnviar = "Nombre de la Maestría: " + global.maestrias[maestria].Nombre;
-            resultado = DialogLib.addCardPosgrados(textoEnviar, maestria, imagenMaestria, urlMaestria);
+            resultado = DialogLib.respuestaBasica(textoEnviar);
+            DialogLib.addCard(resultado, maestria,textoEnviar, imagenMaestria, urlMaestria);
 
         } catch (error) {
             textoEnviar = "No conozco esa maestria";
