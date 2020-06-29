@@ -4,7 +4,8 @@ module.exports = {
     mostrarEspecializacion : function(resultado, especializacion, textoEnviar, imagenEspe, urlEspe){
         try {
             textoEnviar = "Nombre de la Especialización: " + global.especializaciones[especializacion].Nombre;
-            resultado = DialogLib.addCardPosgrados(textoEnviar, especializacion, imagenEspe, urlEspe);
+            resultado = DialogLib.respuestaBasica(textoEnviar);
+            DialogLib.addCard(resultado,especializacion, textoEnviar, imagenEspe, urlEspe);
         } catch (error) {
             textoEnviar = "No conozco esa maestria";
             resultado = DialogLib.respuestaBasica(textoEnviar);

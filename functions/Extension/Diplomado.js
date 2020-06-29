@@ -6,7 +6,8 @@ module.exports = {
     dardiplomado: function(resultado, diplomado, textoEnviar, imagenDiplomado,urlDiplomado){
         try {
             textoEnviar = "Nombre del diplomado: " + global.diplomados[diplomado].Nombre;
-            resultado = DialogLib.addCard(textoEnviar, diplomado, imagenDiplomado, urlDiplomado);
+            resultado = DialogLib.respuestaBasica(textoEnviar);
+            DialogLib.addCard(resultado, diplomado, textoEnviar,imagenDiplomado, urlDiplomado);
             
         } catch (error) {
             textoEnviar = "No conozco ese diplomado";
