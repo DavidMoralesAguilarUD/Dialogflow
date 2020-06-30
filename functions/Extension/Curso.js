@@ -1,7 +1,7 @@
 'use strict'
 const DialogLib=require('../DialogLib');
 module.exports = {
-    darCurso: function(resultado, curso, textoEnviar, imagenCurso,urlCurso){
+    mostrarCurso: function(resultado, curso, textoEnviar, imagenCurso,urlCurso){
         try {
             textoEnviar = "Nombre del curso: " + global.cursos[curso].Nombre;
             resultado = DialogLib.respuestaBasica(textoEnviar);

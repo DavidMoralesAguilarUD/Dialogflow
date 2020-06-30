@@ -1,0 +1,155 @@
+{
+    "Plan Desarrollo" : {
+        "Nombre": "Oficina Asesora de Planeación y Control", 
+        "url": "http://planeacion.udistrital.edu.co:8080/direccionamiento", 
+        "Descripcion": "sistema de planeación a través del cual se elabora, ejecuta y evalúa el proyecto institucional, a propuesta del Consejo Académico para la realización de los principios, logro de los objetivos y desarrollo de la gestión universitaria.", 
+        "Tipo": "Administrativa", 
+        "Imagen": "http://planeacion.udistrital.edu.co:8080/image/image_gallery?uuid=78de5b4f-f2b9-4bff-9931-a094de45e800&groupId=9036399&t=1529699016713"
+    },
+    "Secretaria Academica" : {
+        "Nombre": "Secretaría Académica", 
+        "url": "http://fingenieria.udistrital.edu.co:8080/secretaria-academica", 
+        "Tipo": "Administrativa"
+    },
+    "Comite E A" : {
+        "Nombre": "Comité de Autoevaluación y Acreditación", 
+        "url": "http://www1.udistrital.edu.co:8080/web/comite-de-autoevaluacion-y-acreditacion-facultad-de-ingenieria/", 
+        "Tipo": "Administrativa", 
+        "Imagen": "XXXpendienteXXX"
+    },
+    "Comite Curriculo" : {
+        "Nombre": "Comité de Curriculo", 
+        "url": "https://rita.udistrital.edu.co/comiteingenieria/", 
+        "Descripcion": "Cuerpo colegiado encargado de velar por la permanente revisión de lineamientos pedagógicos y curriculares, además de promover estrategias para la implementación de las políticas y orientaciones que al respecto que genere la universidad a través de las instancias competentes, en la facultad.", 
+        "Tipo": "Administrativa", 
+        "Imagen": "https://rita.udistrital.edu.co/comiteingenieria/images/logo.png"
+    },
+    "Laboratorios" : {
+        "Nombre": "Laboratorios de Ingeniería", 
+        "url": "https://labing.udistrital.edu.co/", 
+        "Descripcion": "El Laboratorio de la Facultad de Ingeniería, es la dependencia que se encarga del desarrollo administrativo para el apoyo académico a los proyectos curriculares de la facultad (Ingeniería Eléctrica, Ingeniería Electrónica, Ingeniería Catastral y Geodesia, Ingeniería Industrial e Ingeniería de Sistemas) y a los programas de Especialización y Maestrías.", 
+        "Tipo": "Administrativa", 
+        "Imagen": "https://labing.udistrital.edu.co/wp-content/uploads/2018/05/cropped-logo-laboratorio-01-1.png"
+    },
+    "Bienestar Institucional" : {
+        "Nombre": "Bienestar Institucional", 
+        "url": "http://bienestar.udistrital.edu.co:8080/", 
+        "Tipo": "Administrativa", 
+        "Imagen": "http://bienestar.udistrital.edu.co:8080/image/image_gallery?uuid=da053eca-62af-4e05-b6d2-0f93478819dd&groupId=76275&t=1571244253618"
+    },
+    "Biblioteca" : {
+        "Nombre": "Biblioteca Ingeniería", 
+        "url": "http://sistemadebibliotecas.udistrital.edu.co:8000/index.php/bibliotecas/ingenieria", 
+        "Descripcion": "La Biblioteca de la Facultad de ingeniería de la Universidad Distrital Francisco José de Caldas es la unidad de información encargada de brindar a su comunidad de usuarios los recursos necesarios para apoyar las labores de investigación, docencia y desarrollo académico de la Facultad.", 
+        "Tipo": "Administrativa", 
+        "Imagen": "http://sistemadebibliotecas.udistrital.edu.co:8000/images/ingenieria/ingenieria_8.jpg"
+    },
+    "Pasantias" : {
+        "Nombre": "Pasantías", 
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=431", 
+        "Tipo": "Administrativa", 
+        "Imagen": "https://ingenieria.udistrital.edu.co/pluginfile.php/795/mod_page/content/17/Pasantia.jpg"
+    },
+    "Interinstitucional" : {
+        "Nombre": "Centro de Relaciones Interinstitucionales", 
+        "url": "https://ceri.udistrital.edu.co/", 
+        "Descripcion": "l Centro de Relaciones Interinstitucionales (CERI) de la Universidad Distrital Francisco José de Caldas (UDFJC), acogiéndose a las medidas de prevención y mitigación del riesgo con ocasión de la situación epidemiológica causada por el Coronavirus (COVID-19), se permite informar a la comunidad académica y al público en general las medidas adoptadas por ésta dependencia para prestar atención a la comunidad académica en modalidad de trabajo en casa, atendiendo la declaratoria de emergencia sanitaria y social en el territorio nacional.", 
+        "Tipo": "Administrativa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+     
+    }
+}
