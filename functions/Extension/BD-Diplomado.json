@@ -1,31 +1,83 @@
 {
-    "Telesalud Telemedicina" : {
-        "id_Curso": "8", 
-        "Nombre": "Telesalud y telemedicina", 
-        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/8/", 
-        "Descripcion": "Trabajar en equipo interdisciplinario aportando desde las bases conceptuales y metodológicas mejoras a la implementación de las TIC a los procesos de atención médica y en general en procesos y negocios de .", 
-        "Tipo": "Diplomado", 
-        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/Telesalud_modificado_yDZIih1.PNG", 
-        "Comentario": ""},
-    "Economia Cicular Sostenebilidad" : {
-        "id_Curso": "20", 
-        "Nombre": "Economia Circular y Sostenebilidad", 
-        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/20/", 
-        "Descripcion": "Promover el conocimiento hacia la economía circular y la sostenibilidad, como eje transversal de los ámbitos de aplicación que identifiquen oportunidades, estrategias de innovación y desarrollo de nuevas vías de negocio que permitan el aprovechamiento de materiales, agua y energía en empresas privadas y públicas reorientar su modelo productivo a la economía circular que se vienen adelantando a nivel nacional e internacional. ", 
-        "Tipo": "Diplomado", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/WhatsApp_Image_2020-05-18_at_1.55.37_PM_Z3SAmH9.jpeg", 
-        "Comentario": ""},
-    "Full Stack Web Developer Ruby Rails " : {"id_Curso": "14", "Nombre": "Full Stack Web Developer - Ruby on Rails ", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/14/", "Descripcion": " Este diplomado facilita a quienes tienen el deseo de mejorar sus capacidades para desarrollar sitios web innovadores con tecnologías utilizadas por empresas como Airbnb y github.", "Tipo": "Diplomado", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/Ruby_on_rails.jpg", "Comentario": ""},
-    "Fracking" : {"id_Curso": "9", "Nombre": "Fracking", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/9/", "Descripcion": "Trabajar en equipo interdisciplinario aportando desde las bases conceptuales y metodológicas para analizar y buscar la verdad del Fracking, sin mentiras y sin atemorizar a las personas, con el único propósito de resaltar el bienestar de las generaciones futuras, destacando las consecuencias y afectaciones de esta tecnología en diferentes partes del mundo basado en las experiencias donde se ha aplicado.", "Tipo": "Diplomado", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/FRACKING_3k2whGD.jpg", "Comentario": ""},
-    "Sistemas Gestión Seguridad" : {
-        "id_Curso": "5", 
-        "Nombre": "Sistemas de Gestión para la Seguridad", 
-        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/5/", 
+    "Telesalud Telemedicina": {
+        "id_Curso": "8",
+        "Nombre": "Telesalud y telemedicina",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/8/",
+        "Descripcion": "Trabajar en equipo interdisciplinario aportando desde las bases conceptuales y metodológicas mejoras a la implementación de las TIC a los procesos de atención médica y en general en procesos y negocios de .",
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/Telesalud_modificado_yDZIih1.PNG",
+        "Comentario": ""
+    },
+    "Economia Cicular Sostenebilidad": {
+        "id_Curso": "20",
+        "Nombre": "Economia Circular y Sostenebilidad",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/20/",
+        "Descripcion": "Promover el conocimiento hacia la economía circular y la sostenibilidad, como eje transversal de los ámbitos de aplicación que identifiquen oportunidades, estrategias de innovación y desarrollo de nuevas vías de negocio que permitan el aprovechamiento de materiales, agua y energía en empresas privadas y públicas reorientar su modelo productivo a la economía circular que se vienen adelantando a nivel nacional e internacional. ",
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/WhatsApp_Image_2020-05-18_at_1.55.37_PM_Z3SAmH9.jpeg",
+        "Comentario": ""
+    },
+    "Full Stack Web Developer Ruby Rails ": {
+        "id_Curso": "14",
+        "Nombre": "Full Stack Web Developer - Ruby on Rails ",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/14/",
+        "Descripcion": " Este diplomado facilita a quienes tienen el deseo de mejorar sus capacidades para desarrollar sitios web innovadores con tecnologías utilizadas por empresas como Airbnb y github.",
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/Ruby_on_rails.jpg",
+        "Comentario": ""
+    },
+    "Fracking": {
+        "id_Curso": "9",
+        "Nombre": "Fracking",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/9/",
+        "Descripcion": "Trabajar en equipo interdisciplinario aportando desde las bases conceptuales y metodológicas para analizar y buscar la verdad del Fracking, sin mentiras y sin atemorizar a las personas, con el único propósito de resaltar el bienestar de las generaciones futuras, destacando las consecuencias y afectaciones de esta tecnología en diferentes partes del mundo basado en las experiencias donde se ha aplicado.",
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/FRACKING_3k2whGD.jpg",
+        "Comentario": ""
+    },
+    "Sistemas Gestión Seguridad": {
+        "id_Curso": "5",
+        "Nombre": "Sistemas de Gestión para la Seguridad",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/5/",
         "Descripcion": "El diplomado que comprende los conceptos fundamentales de un Sistema de Gestión de Seguridad de la Información e interpretar los requisitos de la norma ISO 27001 según las necesidades y el contexto en que se desenvuelven las organizaciones.",
-        "Tipo": "Diplomado", 
-        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/SGISS_ZJHvvIu.jpg", 
-        "Comentario": ""},
-    "Desarrollo Aplicación Marketing Digital Pymes" : {"id_Curso": "2", "Nombre": "Desarrollo y aplicación de Marketing Digital pymes", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/2/", "Descripcion": "El diplomado busca brindar y aplicar herramientas reales de Marketing Digital a Pequeños empresarios, pymes, independientes y negocios familiares que le permitan mejorar su competitividad en el mercado, potencializar su crecimiento y garantizar su sostenibilidad.", "Tipo": "Diplomado", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/BANNER_diplomados_ingenierA_a-03.jpg", "Comentario": ""},
-    "Gestión Dirección Proyectos" : {"id_Curso": "3", "Nombre": "Gestión y Dirección de Proyectos", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/3/", "Descripcion": "El diplomado en Gestión de proyectos, tiene como propósito preparar a los estudiantes, para que comprendan que es la gestión de proyectos, de tal forma que aprendan a identificar oportunidades que le permitan enriquecer su perfil profesional y se diferencie en el mercado laboral frente a otros profesionales.", "Tipo": "Diplomado", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/GESTION.jpg", "Comentario": ""},
-    "Normas Internacionales Información Financiera NIIF" : {"id_Curso": "4", "Nombre": "Normas Internacionales de Información Financiera NIIF", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/4/", "Descripcion": "El diplomado en Normas Internacionales de Información Financiera (NIIF), tiene como propósito capacitar sobre el manejo conceptual y técnico en el reconocimiento, medición y revelación de información y operaciones de las pequeñas y medianas empresas.", "Tipo": "Diplomado", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/banner5.jpg", "Comentario": ""},
-    "Administración Tierras Colombia Marco Política Publica" : {"id_Curso": "16", "Nombre": "Administración de Tierras en Colombia en el Marco de la Política Publica", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/16/", "Descripcion": "Este diplomado busca contribuir a la continuación del proceso de modernización de la administración de tierras en Colombia al desarrollar el recurso humano requerido. Completado con éxito, es recompensado con un título CAS (Certificado de Estudios Avanzados), de la Universidad de Ciencias Aplicadas FHNW de Suiza y un certificado de la Universidad Distrital.", "Tipo": "Diplomado", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/tamano_banner.jpg", "Comentario": ""}
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/SGISS_ZJHvvIu.jpg",
+        "Comentario": ""
+    },
+    "Desarrollo Aplicación Marketing Digital Pymes": {
+        "id_Curso": "2",
+        "Nombre": "Desarrollo y aplicación de Marketing Digital pymes",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/2/",
+        "Descripcion": "El diplomado busca brindar y aplicar herramientas reales de Marketing Digital a Pequeños empresarios, pymes, independientes y negocios familiares que le permitan mejorar su competitividad en el mercado, potencializar su crecimiento y garantizar su sostenibilidad.",
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/BANNER_diplomados_ingenierA_a-03.jpg",
+        "Comentario": ""
+    },
+    "Gestión Dirección Proyectos": {
+        "id_Curso": "3",
+        "Nombre": "Gestión y Dirección de Proyectos",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/3/",
+        "Descripcion": "El diplomado en Gestión de proyectos, tiene como propósito preparar a los estudiantes, para que comprendan que es la gestión de proyectos, de tal forma que aprendan a identificar oportunidades que le permitan enriquecer su perfil profesional y se diferencie en el mercado laboral frente a otros profesionales.",
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/GESTION.jpg",
+        "Comentario": ""
+    },
+    "Normas Internacionales Información Financiera NIIF": {
+        "id_Curso": "4",
+        "Nombre": "Normas Internacionales de Información Financiera NIIF",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/4/",
+        "Descripcion": "El diplomado en Normas Internacionales de Información Financiera (NIIF), tiene como propósito capacitar sobre el manejo conceptual y técnico en el reconocimiento, medición y revelación de información y operaciones de las pequeñas y medianas empresas.",
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/banner5.jpg",
+        "Comentario": ""
+    },
+    "Administración Tierras Colombia Marco Política Publica": {
+        "id_Curso": "16",
+        "Nombre": "Administración de Tierras en Colombia en el Marco de la Política Publica",
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/16/",
+        "Descripcion": "Este diplomado busca contribuir a la continuación del proceso de modernización de la administración de tierras en Colombia al desarrollar el recurso humano requerido. Completado con éxito, es recompensado con un título CAS (Certificado de Estudios Avanzados), de la Universidad de Ciencias Aplicadas FHNW de Suiza y un certificado de la Universidad Distrital.",
+        "Tipo": "Diplomado",
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/tamano_banner.jpg",
+        "Comentario": ""
+    }
 }

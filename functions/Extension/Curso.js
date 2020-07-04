@@ -10,7 +10,6 @@ module.exports = {
         } catch (error) {
             textoEnviar = "No conozco ese curso";
             resultado = DialogLib.respuestaBasica(textoEnviar);
-            
         }
         return resultado;
     }

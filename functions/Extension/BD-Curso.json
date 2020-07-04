@@ -1,10 +1,63 @@
 {
-    "Metodologia Lean" : {"id_Curso": "1", "Nombre": "Metodología Lean, Buscando la Excelencia Operativa", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/1/", "Descripcion": "Lidere proyectos de alto impacto operativo y financiero bajo el enfoque Lean en su organización, a través de conocimientos y herramientas valoradas en la industria.", "Tipo": "Curso", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/BANNER_rxhwiAn.jpg", "Comentario": ""},
-    "Programa Académico Grado" : {"id_Curso": "19", "Nombre": "Programa Académico de Grado", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/19/", "Descripcion": "Los estudiantes que aspiren a realizar el programa de grado deben ingresar al link de la descripción e inscribirse eligiendo dos opciones, se elegirá desarrollar el de mayor demanda.", "Tipo": "Curso", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/Acuerdo_069.jpg", "Comentario": ""},
-    "Teoría, adquisición Procesamiento Imágenes Drones Fotogramétricos" : {"id_Curso": "12", "Nombre": "Teoría, adquisición y procesamiento de imágenes tomadas con drones con propósitos fotogramétricos", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/12/", "Descripcion": "Este curso teórico práctico tiene como propósito abarcar un espectro importante de las actividades que se realizan con base a imágenes tomadas con drones.", "Tipo": "Curso", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/DRONES2.jpg", "Comentario": ""},
-    "Pre Universitario" : {"id_Curso": "15", "Nombre": "Pre Universitario", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/15/", "Descripcion": "El pre universitario busca capacitar a los interesados en ingresar a la educación superior, ó que van a presentar las pruebas de Estado reforzando y afianzando los conocimientos en las áreas de Matemáticas, Física y Química.", "Tipo": "Curso", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/preuniversitario_gfAzbvD.jpg", "Comentario": ""},
-    "Introducción Programación Python" : {"id_Curso": "11", "Nombre": "Introducción a la Programación en Python", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/11/", "Descripcion": "Con este curso se quiere capacitar a los estudiantes en los conceptos base de la programación, en los que se incluyen los tipos de datos, las estructuras de control, el diseño y desarrollo de algoritmos y programas usando Python como lenguaje de programación.", "Tipo": "Curso", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/PYTHON_1.jpg", "Comentario": ""},
-    "Ejecutivo Control Contratos" : {"id_Curso": "10", "Nombre": "Ejecutivo de Control de Contratos", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/10/", "Descripcion": "Afianzar y ampliar los conocimientos en aspectos de contratación en general y en el control de contratos en particular con el fin de profundizar en métodos de control de contratos, proyección de pliegos de contratación o en servicios de control de contratos públicos y privados a fin de promover la transparencia y la lucha contra la corrupción de los mismos.", "Tipo": "Curso", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/EJECUTIVO.jpg", "Comentario": ""},
-    "Python Ciencia Datos" : {"id_Curso": "13", "Nombre": "Python y la ciencia de datos", "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/13/", "Descripcion": "Este curso introduce a los estudiantes en el soporte que brinda Python y algunas librerías que tiene el lenguaje para el análisis de datos.", "Tipo": "Curso", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/PHYTON_Y_CIENCIA.jpg", "Comentario": ""}
+    "Metodologia Lean" : {
+        "id_Curso": "1", 
+        "Nombre": "Metodología Lean, Buscando la Excelencia Operativa", 
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/1/", 
+        "Descripcion": "Lidere proyectos de alto impacto operativo y financiero bajo el enfoque Lean en su organización, a través de conocimientos y herramientas valoradas en la industria.", 
+        "Tipo": "Curso", 
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/BANNER_rxhwiAn.jpg", 
+        "Comentario": ""},
+    "Programa Académico Grado" : {
+        "id_Curso": "19", 
+        "Nombre": "Programa Académico de Grado", 
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/19/", 
+        "Descripcion": "Los estudiantes que aspiren a realizar el programa de grado deben ingresar al link de la descripción e inscribirse eligiendo dos opciones, se elegirá desarrollar el de mayor demanda.", 
+        "Tipo": "Curso", "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/Acuerdo_069.jpg", 
+        "Comentario": ""
+    },
+    "Teoría, adquisición Procesamiento Imágenes Drones Fotogramétricos" : {
+        "id_Curso": "12", 
+        "Nombre": "Teoría, adquisición y procesamiento de imágenes tomadas con drones con propósitos fotogramétricos", 
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/12/", 
+        "Descripcion": "Este curso teórico práctico tiene como propósito abarcar un espectro importante de las actividades que se realizan con base a imágenes tomadas con drones.", 
+        "Tipo": "Curso", 
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/DRONES2.jpg", "Comentario": ""
+    },
+    "Pre Universitario" : {
+        "id_Curso": "15", 
+        "Nombre": "Pre Universitario", 
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/15/", 
+        "Descripcion": "El pre universitario busca capacitar a los interesados en ingresar a la educación superior, ó que van a presentar las pruebas de Estado reforzando y afianzando los conocimientos en las áreas de Matemáticas, Física y Química.", 
+        "Tipo": "Curso", 
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/preuniversitario_gfAzbvD.jpg", 
+        "Comentario": ""
+    },
+    "Introducción Programación Python" : {
+        "id_Curso": "11", 
+        "Nombre": "Introducción a la Programación en Python", 
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/11/", 
+        "Descripcion": "Con este curso se quiere capacitar a los estudiantes en los conceptos base de la programación, en los que se incluyen los tipos de datos, las estructuras de control, el diseño y desarrollo de algoritmos y programas usando Python como lenguaje de programación.", 
+        "Tipo": "Curso", 
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/PYTHON_1.jpg", 
+        "Comentario": ""
+    },
+    "Ejecutivo Control Contratos" : {
+        "id_Curso": "10", 
+        "Nombre": "Ejecutivo de Control de Contratos", 
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/10/", 
+        "Descripcion": "Afianzar y ampliar los conocimientos en aspectos de contratación en general y en el control de contratos en particular con el fin de profundizar en métodos de control de contratos, proyección de pliegos de contratación o en servicios de control de contratos públicos y privados a fin de promover la transparencia y la lucha contra la corrupción de los mismos.", 
+        "Tipo": "Curso", 
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/EJECUTIVO.jpg", 
+        "Comentario": ""
+    },
+    "Python Ciencia Datos" : {
+        "id_Curso": "13", 
+        "Nombre": "Python y la ciencia de datos", 
+        "url": "https://uefi.udistrital.edu.co/courses/coursesDetail/13/", 
+        "Descripcion": "Este curso introduce a los estudiantes en el soporte que brinda Python y algunas librerías que tiene el lenguaje para el análisis de datos.", 
+        "Tipo": "Curso", 
+        "Imagen": "https://uefi.udistrital.edu.co/media/Images/Courses/PHYTON_Y_CIENCIA.jpg", 
+        "Comentario": ""
+    }
 
 }

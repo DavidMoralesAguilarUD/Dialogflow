@@ -1,0 +1,18 @@
+{
+    "Historia": {
+        "id": "1",
+        "Nombre": "Reseña Historica",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=421",
+        "Descripcion": "La Universidad Distrital Francisco José de Caldas es una institución autónoma de educación superior, de carácter público, constituida esencialmente por procesos y relaciones que generan estudiantes y profesores identificados en la búsqueda libre del saber.",
+        "Tipo": "Facultad",
+        "Comentario": ""
+    },
+    "Mision Vision": {
+        "id": "2",
+        "Nombre": "Misión y Visión",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=422",
+        "Tipo": "Facultad",
+        "Comentario": ""
+    }
+        
+}

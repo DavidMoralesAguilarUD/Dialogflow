@@ -12,7 +12,10 @@ const Maestria = require('./Programas/Posgrados/Maestria.js');
 const DialogLib = require('./DialogLib');
 const Especializacion = require('./Programas/Posgrados/Especializacion.js');
 const Decanatura = require('./Decanatura/Decanatura.js');
+const Facultad = require('./Facultad/Facultad.js');
+const Universidad = require('./Facultad/Universidad.js');
 const { globalAgent } = require('http');
+
 
 
 // Variables Globales Estructura Academica
@@ -22,7 +25,9 @@ global.doctorados = require("./Programas/Posgrados/BD-Doctorado.json");
 global.maestrias = require("./Programas/Posgrados/BD-Maestrias.json");
 global.especializaciones = require("./Programas/Posgrados/BD-Especializacion.json");
 // Variables Globales Estructura Administrativa
-global.JSONDecanatura = require('./Decanatura/BD-Decanatura.json');
+global.JSONDecanatura = require("./Decanatura/BD-Decanatura.json");
+global.JSONUniversidad = require("./Facultad/BD-Universidad.json");
+global.JSONFacultad = require("./Facultad/BD-Facultad.json");
 let server = express();
 server.use(bodyParser.urlencoded({
     extended: true
@@ -63,7 +68,9 @@ server.post("/Bot", (req, res) => {
     let urlCurso;
     // DECANATURA
     let decanatura;
-
+    // FACULTAD
+    let facultad;
+    let universidad;
 
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try {
@@ -141,6 +148,15 @@ server.post("/Bot", (req, res) => {
         } else {
             console.log("Error");
         }
+    } else if (contexto === "facultad" || contexto ==="universidad"){
+        if ((facultad = req.body.queryResult.parameters.facultad)) {
+            resultado = Facultad.mostrarInfoFacultad(res, facultad, textoEnviar);
+        } if ((universidad = req.body.queryResult.parameters.universidad)){
+            resultado = Universidad.mostrarInfoUniversidad(res, universidad, textoEnviar);
+        } else {
+            console.log("Error");
+        }
+
     } else {
         resultado = DialogLib.respuestaBasica(`No hay nada que gestionar`);
     }
