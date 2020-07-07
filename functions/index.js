@@ -14,7 +14,9 @@ const Especializacion = require('./Programas/Posgrados/Especializacion.js');
 const Decanatura = require('./Decanatura/Decanatura.js');
 const Facultad = require('./Facultad/Facultad.js');
 const Universidad = require('./Facultad/Universidad.js');
+const Pregrado = require('./Programas/Pregrado/Pregrado.js');
 const { globalAgent } = require('http');
+
 
 
 
@@ -28,6 +30,7 @@ global.especializaciones = require("./Programas/Posgrados/BD-Especializacion.jso
 global.JSONDecanatura = require("./Decanatura/BD-Decanatura.json");
 global.JSONUniversidad = require("./Facultad/BD-Universidad.json");
 global.JSONFacultad = require("./Facultad/BD-Facultad.json");
+global.JSONPregrado = require('./Programas/Pregrado/BD-Pregrados.json');
 let server = express();
 server.use(bodyParser.urlencoded({
     extended: true
@@ -71,6 +74,8 @@ server.post("/Bot", (req, res) => {
     // FACULTAD
     let facultad;
     let universidad;
+    // PREGRADO
+    let pregrado;
 
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try {
@@ -102,7 +107,7 @@ server.post("/Bot", (req, res) => {
         if ((diplomado = req.body.queryResult.parameters.diplomado)) {
             imagenDiplomado = global.diplomados[diplomado].Imagen;
             urlDiplomado = global.diplomados[diplomado].url;
-            resultado = Diplomado.dardiplomado(res, diplomado, textoEnviar, imagenDiplomado, urlDiplomado);
+            resultado = Diplomado.mostrarDiplomado(res, diplomado, textoEnviar, imagenDiplomado, urlDiplomado);
         } else {
             console.log("Error");
         }
@@ -153,6 +158,12 @@ server.post("/Bot", (req, res) => {
             resultado = Facultad.mostrarInfoFacultad(res, facultad, textoEnviar);
         } if ((universidad = req.body.queryResult.parameters.universidad)){
             resultado = Universidad.mostrarInfoUniversidad(res, universidad, textoEnviar);
+        } else {
+            console.log("Error");
+        }
+    } else if (contexto === "pregrado") {
+        if ((pregrado = req.body.queryResult.parameters.pregrado)) {
+            resultado = Pregrado.mostrarPregrado(res,pregrado,textoEnviar);
         } else {
             console.log("Error");
         }

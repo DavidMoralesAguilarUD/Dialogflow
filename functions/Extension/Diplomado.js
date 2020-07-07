@@ -3,7 +3,7 @@ const DialogLib=require('../DialogLib');
 
 module.exports = {
     
-    dardiplomado: function(resultado, diplomado, textoEnviar, imagenDiplomado,urlDiplomado){
+    mostrarDiplomado: function(resultado, diplomado, textoEnviar, imagenDiplomado,urlDiplomado){
         try {
             textoEnviar = "Nombre del diplomado: " + global.diplomados[diplomado].Nombre;
             resultado = DialogLib.respuestaBasica(textoEnviar);
