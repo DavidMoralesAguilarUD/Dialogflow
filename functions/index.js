@@ -4,7 +4,7 @@ const functions = require('firebase-functions');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const menu = require('./menu.js');
+const MenuServicios = require('./MenuServicios.js');
 const Diplomado = require('./Extension/Diplomado.js');
 const Curso = require('./Extension/Curso.js');
 const Doctorado = require('./Programas/Posgrados/Doctorado.js');
@@ -16,9 +16,6 @@ const Facultad = require('./Facultad/Facultad.js');
 const Universidad = require('./Facultad/Universidad.js');
 const Pregrado = require('./Programas/Pregrado/Pregrado.js');
 const { globalAgent } = require('http');
-
-
-
 
 // Variables Globales Estructura Academica
 global.diplomados = require("./Extension/BD-Diplomado.json");
@@ -46,9 +43,13 @@ server.post("/Bot", (req, res) => {
     let contexto = "nada";
     let resultado;
     let textoEnviar = `recibida peticion post incorrecta`;
-    let opciones = DialogLib.reducirAOcho(["Maestria en Telecomunicaciones Móviles", "Especialización en Avaluos ",
-        "Bioingeniería", "Maestria en Ingeniería Industrial", "Doctorado", "Python", "Diplomado en Telesalud"]);
+    
     // VARIABLES PARAMETRICAS (INTENCIONES) BASICAS
+    // SALUDO
+    
+    //SUGERENCIAS
+    let opciones = DialogLib.reducirAOcho(["Maestria - Telecomunicaciones Móviles", "Especialización en Avaluos ",
+    "Bioingeniería", "Maestria: Ingeniería Industrial", "Doctorado", "Python", "Diplomado en Telesalud"]);
     // DOCTORADO
     let doctorado;
     let imagenDoctorado;
@@ -76,6 +77,7 @@ server.post("/Bot", (req, res) => {
     let universidad;
     // PREGRADO
     let pregrado;
+    let prueba;
 
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try {
@@ -84,30 +86,35 @@ server.post("/Bot", (req, res) => {
     } catch (error) {
         console.log("Error contexto vacio:" + error);
     }
-
-
     if (req.body.queryResult.parameters) {
         console.log("parametros:" + req.body.queryResult.parameters);
     } else {
         console.log("Sin Parametros");
     }
+///////////////////////////////////////////////////////////////////////////////
 
+  /*   if(contexto === "prueba"){
+        if(prueba = req.body.queryResult.parameters.prueba){
+            resultado = MenuServicios.mostrarSaludo(res, textoEnviar);
+        }else {
+            console.log("Error");
+        }
+        */
+    ////// Bienvenida //////
     if (contexto === "input.welcome") {
-        textoEnviar = "Hola, soy tu ChatBot Virtual UD, escribe servicio para ofrecertelo";
-        resultado = DialogLib.respuestaBasica(textoEnviar);
-
-
-    } else if (contexto === "servicio") {
-        resultado = DialogLib.respuestaBasica("Esta en el menu principal de servicios");
+        resultado = MenuServicios.mostrarSaludo(res, textoEnviar);
+    } else if (contexto === "afirmacion") {
+        resultado = MenuServicios.mostrarSugerencia(res, textoEnviar);
         DialogLib.addSuggestions(resultado, opciones);
-
-        // } else if (contexto === "Hola") {
-        //     resultado = menu.daropciones(res);
+    } else if (contexto === "negacion") {
+        resultado = MenuServicios.mostrarNegacion(res, textoEnviar);
+    //-----------------------intenciones --------------------------------------//
     } else if (contexto === "diplomado") {
         if ((diplomado = req.body.queryResult.parameters.diplomado)) {
             imagenDiplomado = global.diplomados[diplomado].Imagen;
             urlDiplomado = global.diplomados[diplomado].url;
             resultado = Diplomado.mostrarDiplomado(res, diplomado, textoEnviar, imagenDiplomado, urlDiplomado);
+            
         } else {
             console.log("Error");
         }
