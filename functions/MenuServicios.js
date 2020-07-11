@@ -22,7 +22,7 @@ module.exports = {
     },
     mostrarOtraSugerencia : function(resultado, textoEnviar){
         try {
-            textoEnviar="¿Deseas oberservar mas informacion?";
+            textoEnviar="¿Deseas continuar viendo más información?";
             resultado=DialogLib.respuestaBasica(textoEnviar);
         } catch (error) {
             resultado = "Error";
@@ -31,7 +31,7 @@ module.exports = {
     },
     mostrarNegacion : function(resultado, textoEnviar){
         try {
-            textoEnviar="Vale, será para la próxima ocasión.";
+            textoEnviar="Bueno!!, espero que te haya podido ayudar con la información proporcionada, deseo volverte a ver en un futuro.";
             resultado=DialogLib.respuestaBasica(textoEnviar);
         } catch (error) {
             resultado = "Error";
