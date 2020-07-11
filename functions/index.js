@@ -109,6 +109,14 @@ server.post("/Bot", (req, res) => {
     } else if (contexto === "negacion") {
         resultado = MenuServicios.mostrarNegacion(res, textoEnviar);
     //-----------------------intenciones --------------------------------------//
+    } else if(contexto ==="sugerencia"){
+        resultado = MenuServicios.mostrarSugerencia(res, textoEnviar);
+    } else if(contexto ==="otrasugerencia"){
+        resultado = MenuServicios.mostrarOtraSugerencia(res, textoEnviar);
+    } else if(contexto ==="sisugerencia"){
+        resultado = MenuServicios.mostrarSugerencia(res, textoEnviar);
+    } else if(contexto ==="nosugerencia"){
+        resultado = MenuServicios.mostrarNegacion(res, textoEnviar);
     } else if (contexto === "diplomado") {
         if ((diplomado = req.body.queryResult.parameters.diplomado)) {
             imagenDiplomado = global.diplomados[diplomado].Imagen;
@@ -176,11 +184,11 @@ server.post("/Bot", (req, res) => {
         }
 
     } else {
-        resultado = DialogLib.respuestaBasica(`No hay nada que gestionar`);
+        resultado = DialogLib.respuestaBasica(`No te entiendo muy bien`);
     }
     res.json(resultado);
 });
-const local = true;
+const local = false;
 if (local) {
     server.listen((process.env.PORT || 8000), () => {
         console.log("Servidor funcionando");
