@@ -22,7 +22,7 @@ module.exports = {
     },
     mostrarOtraSugerencia : function(resultado, textoEnviar){
         try {
-            textoEnviar="¿Deseas continuar viendo más información?";
+            textoEnviar="¿Deseas ver más información? ó vuelvamos a dialogar";
             resultado=DialogLib.respuestaBasica(textoEnviar);
         } catch (error) {
             resultado = "Error";

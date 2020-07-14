@@ -3,7 +3,7 @@ const DialogLib=require('../../DialogLib.js');
 module.exports = {
     mostrarDoctorado: function (resultado, doctorado, textoEnviar, imagenDoctorado, urlDoctorado) {
         try {
-            textoEnviar = "Nombre del Doctorado: " + global.doctorados[doctorado].Nombre;
+            textoEnviar = "Nombre del Doctorado: " + global.JSONdoctorados[doctorado].Nombre;
             resultado = DialogLib.respuestaBasica(textoEnviar);
             DialogLib.addCard(resultado,doctorado, textoEnviar,imagenDoctorado, urlDoctorado);
     

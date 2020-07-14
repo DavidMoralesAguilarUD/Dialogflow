@@ -18,11 +18,11 @@ const Pregrado = require('./Programas/Pregrado/Pregrado.js');
 const { globalAgent } = require('http');
 
 // Variables Globales Estructura Academica
-global.diplomados = require("./Extension/BD-Diplomado.json");
-global.cursos = require("./Extension/BD-Curso.json");
-global.doctorados = require("./Programas/Posgrados/BD-Doctorado.json");
-global.maestrias = require("./Programas/Posgrados/BD-Maestrias.json");
-global.especializaciones = require("./Programas/Posgrados/BD-Especializacion.json");
+global.JSONdiplomados = require("./Extension/BD-Diplomado.json");
+global.JSONcursos = require("./Extension/BD-Curso.json");
+global.JSONdoctorados = require("./Programas/Posgrados/BD-Doctorado.json");
+global.JSONmaestrias = require("./Programas/Posgrados/BD-Maestrias.json");
+global.JSONespecializaciones = require("./Programas/Posgrados/BD-Especializacion.json");
 // Variables Globales Estructura Administrativa
 global.JSONDecanatura = require("./Decanatura/BD-Decanatura.json");
 global.JSONUniversidad = require("./Facultad/BD-Universidad.json");
@@ -60,6 +60,7 @@ server.post("/Bot", (req, res) => {
     let urlMaestria;
     // ESPECIALIZCIÓN
     let especializacion;
+    let especializacionsoft;
     let imagenEspe;
     let urlEspe;
     // DIPLOMADO
@@ -72,6 +73,8 @@ server.post("/Bot", (req, res) => {
     let urlCurso;
     // DECANATURA
     let decanatura;
+    let imagenDeca;
+    let urlDeca;
     // FACULTAD
     let facultad;
     let universidad;
@@ -108,37 +111,37 @@ server.post("/Bot", (req, res) => {
         DialogLib.addSuggestions(resultado, opciones);
     } else if (contexto === "negacion") {
         resultado = MenuServicios.mostrarNegacion(res, textoEnviar);
-    //-----------------------intenciones --------------------------------------//
-    } else if(contexto ==="sugerencia"){
+        //-----------------------intenciones --------------------------------------//
+    } else if (contexto === "sugerencia") {
         resultado = MenuServicios.mostrarSugerencia(res, textoEnviar);
-    } else if(contexto ==="otrasugerencia"){
+    } else if (contexto === "otrasugerencia") {
         resultado = MenuServicios.mostrarOtraSugerencia(res, textoEnviar);
-    } else if(contexto ==="sisugerencia"){
+    } else if (contexto === "sisugerencia") {
         resultado = MenuServicios.mostrarSugerencia(res, textoEnviar);
-    } else if(contexto ==="nosugerencia"){
+    } else if (contexto === "nosugerencia") {
         resultado = MenuServicios.mostrarNegacion(res, textoEnviar);
     } else if (contexto === "diplomado") {
         if ((diplomado = req.body.queryResult.parameters.diplomado)) {
-            imagenDiplomado = global.diplomados[diplomado].Imagen;
-            urlDiplomado = global.diplomados[diplomado].url;
+            imagenDiplomado = global.JSONdiplomados[diplomado].Imagen;
+            urlDiplomado = global.JSONdiplomados[diplomado].url;
             resultado = Diplomado.mostrarDiplomado(res, diplomado, textoEnviar, imagenDiplomado, urlDiplomado);
-            
+
         } else {
             console.log("Error");
         }
 
     } else if (contexto === "curso") {
         if ((curso = req.body.queryResult.parameters.curso)) {
-            imagenCurso = global.cursos[curso].Imagen;
-            urlCurso = global.cursos[curso].url;
+            imagenCurso = global.JSONcursos[curso].Imagen;
+            urlCurso = global.JSONcursos[curso].url;
             resultado = Curso.mostrarCurso(res, curso, textoEnviar, imagenCurso, urlCurso);
         } else {
             console.log("Error");
         }
     } else if (contexto === "doctorado") {
         if ((doctorado = req.body.queryResult.parameters.doctorado)) {
-            imagenDoctorado = global.doctorados[doctorado].Imagen;
-            urlDoctorado = global.doctorados[doctorado].url;
+            imagenDoctorado = global.JSONdoctorados[doctorado].Imagen;
+            urlDoctorado = global.JSONdoctorados[doctorado].url;
             resultado = Doctorado.mostrarDoctorado(res, doctorado, textoEnviar, imagenDoctorado, urlDoctorado, opciones);
             console.log(resultado);
         } else {
@@ -147,24 +150,34 @@ server.post("/Bot", (req, res) => {
 
     } else if (contexto === "maestria") {
         if ((maestria = req.body.queryResult.parameters.maestria)) {
-            imagenMaestria = global.maestrias[maestria].Imagen;
-            urlMaestria = global.maestrias[maestria].url;
+            imagenMaestria = global.JSONmaestrias[maestria].Imagen;
+            urlMaestria = global.JSONmaestrias[maestria].url;
             resultado = Maestria.mostrarMaestria(res, maestria, textoEnviar, imagenMaestria, urlMaestria);
 
         } else {
             console.log("Error");
         }
-    } else if (contexto === "especializacion") {
+    } else if (contexto === "especializacion" | contexto === "especializacionsoft") {
         if ((especializacion = req.body.queryResult.parameters.especializacion)) {
-            imagenEspe = global.especializaciones[especializacion].Imagen;
-            urlEspe = global.especializaciones[especializacion].url;
+            imagenEspe = global.JSONespecializaciones[especializacion].Imagen;
+            urlEspe = global.JSONespecializaciones[especializacion].url;
             resultado = Especializacion.mostrarEspecializacion(res, especializacion, textoEnviar, imagenEspe, urlEspe);
+        } else if ((especializacionsoft = req.body.queryResult.parameters.especializacionsoft)) {
+            if ((especializacionsoft === "Ingeniería Software")) {
+                imagenEspe = global.JSONespecializaciones[especializacionsoft].Imagen;
+                urlEspe = global.JSONespecializaciones[especializacionsoft].url;
+                resultado = Especializacion.mostrarSoftware(res, especializacionsoft, textoEnviar, imagenEspe, urlEspe);
+            } else {
+                console.log("Error");
+            }
         } else {
             console.log("Error");
         }
     } else if (contexto === "decanatura") {
         if ((decanatura = req.body.queryResult.parameters.decanatura)) {
-            resultado = Decanatura.mostrarDecanatura(res, decanatura);
+            imagenDeca = global.JSONDecanatura[decanatura].Imagen;
+            urlDeca = global.JSONDecanatura[decanatura].url;
+            resultado = Decanatura.mostrarDecanatura(res, decanatura,textoEnviar, imagenDeca, urlDeca);
         } else {
             console.log("Error");
         }
@@ -184,7 +197,7 @@ server.post("/Bot", (req, res) => {
         }
 
     } else {
-        resultado = DialogLib.respuestaBasica(`No te entiendo muy bien`);
+        resultado = DialogLib.respuestaBasica(`No te entiendo. Inicia la conversacion`);
     }
     res.json(resultado);
 });
