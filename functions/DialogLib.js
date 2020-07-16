@@ -23,7 +23,7 @@ function respuestaBasica(textoEnviar) {
     }
     return respuesta;
 }
-function addSuggestions(res, opciones){
+function addSuggestions(res, opciones) {
     res.fulfillmentMessages.push({
         "platform": "ACTIONS_ON_GOOGLE",
         "suggestions": {
@@ -31,10 +31,10 @@ function addSuggestions(res, opciones){
         }
     });
 }
-function OptionsListGoogle(opciones){
-    let res=[];
-    for(let i=0; i<opciones.length;i++){
-        res.push({"title": opciones[i]})
+function OptionsListGoogle(opciones) {
+    let res = [];
+    for (let i = 0; i < opciones.length; i++) {
+        res.push({ "title": opciones[i] })
     }
     return res;
 }
@@ -62,95 +62,72 @@ function addCard(res, titulo, texto, imagen, url) {
             }
         });
 }
-function reducirAOcho(opciones){
+function listSelect(res, titulo, keyuno, keydos, keytres, keycuatro, keycinco, keyseis) {
+    res.fulfillmentMessages.push(
+        {
+            "platform": "ACTIONS_ON_GOOGLE",
+            "listSelect": {
+                "title": "Informacion General: " + titulo,
+                "items": [
+                    {
+                        "info": {
+                            "key": keyuno
+                        },
+                        "title": "Coordinador: " + keyuno,
+                    },
+                    {
+                        "info": {
+                            "key": keydos
+                        },
+                        "title": "Asistente: " + keydos,
+                        "image": {}
+                    }, {
+                        "info": {
+                            "key": keytres
+                        },
+                        "title": "Ventanilla Posgrados: " + keytres,
+                        "image": {}
+                    }, {
+                        "info": {
+                            "key": keycuatro
+                        },
+                        "title": "Telefono: " + keycuatro,
+                        "image": {}
+                    }, {
+                        "info": {
+                            "key": keycinco
+                        },
+                        "title": "Direccion: " + keycinco,
+                        "image": {}
+                    }, {
+                        "info": {
+                            "key": keyseis
+                        },
+                        "title": "Email: " + keyseis,
+                        "image": {}
+                    }
+                ]
+            }
+        });
+}
+function reducirAOcho(opciones) {
     let res = [];
     let i = 0;
     let pos;
-    while (i<4&&opciones.length>0){
-        pos=Math.floor(Math.random()*opciones.length);
+    while (i < 3 & opciones.length > 0) {
+        pos = Math.floor(Math.random() * opciones.length);
         res.push(opciones[pos]);
         opciones.splice(pos, 1);
         i++;
     }
     return res;
-    
-}
-function addCard2(textoEnviar, titulo, imagen, url) {
-    let respuesta = {
-        "fulfillmentText": textoEnviar,
-        "fulfillmentMessages": [
-            {
-                "platform": "ACTIONS_ON_GOOGLE",
-                "basicCard": {
-                    "title": titulo, 
-                    "formattedText": textoEnviar,
-                    "image": {
-                        "imageUri": imagen,
-                        "accessibilityText": titulo
-                    },
-                    "buttons": [
-                        {
-                            "title": `Más info. ${titulo}`,
-                            "openUriAction": {
-                                "uri": url
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "text": {
-                    "text": [
-                        textoEnviar
-                    ]
-                }
-            }
-        ]
-    }
-    return respuesta;
-}
-function addCardPosgrados(textoEnviar, titulo, imagen,url){
-    let respuesta = {
-        "fulfillmentText": textoEnviar,
-        "fulfillmentMessages": [
-            {
-                "platform": "ACTIONS_ON_GOOGLE",
-                "basicCard": {
-                    "title": titulo, 
-                    "formattedText": textoEnviar,
-                    "image": {
-                        "imageUri": imagen,
-                        "accessibilityText": titulo
-                    },
-                    "buttons": [
-                        {
-                            "title": `Más info. ${titulo}`,
-                            "openUriAction": {
-                                "uri": url
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "text": {
-                    "text": [
-                        textoEnviar
-                    ]
-                }
-            }
-        ]
-    }
-    return respuesta;
-}
 
-
+}
 
 module.exports = {
     respuestaBasica: respuestaBasica,
     addSuggestions: addSuggestions,
     reducirAOcho: reducirAOcho,
     addCard: addCard,
-    addCard2: addCard2,
-    addCardPosgrados: addCardPosgrados
+    listSelect: listSelect
 }
