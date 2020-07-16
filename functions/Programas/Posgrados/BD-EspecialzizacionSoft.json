@@ -1,0 +1,63 @@
+{
+    "Plan Estudios": {
+        "id": "1",
+        "Nombre": "Plan de Estudios",
+        "url": "https://ingenieria.udistrital.edu.co/mod/folder/view.php?id=304",
+        "Tipo": "Especialización - Software"
+    },
+    "Quienes Somos": {
+        "id": "2",
+        "Nombre": "¿Quienes Somos?",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=302",
+        "Tipo": "Especialización - Software"
+    },
+    "Perfil Egresado": {
+        "id": "3",
+        "Nombre": "perfil de Egresado",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=303",
+        "Tipo": "Especialización - Software"
+    },
+    "Documentos": {
+        "id": "4",
+        "Nombre": "Documentos",
+        "url": "https://ingenieria.udistrital.edu.co/mod/folder/view.php?id=301",
+        "Tipo": "Especialización - Software"
+    },
+    "Consejo Carrera": {
+        "id": "5",
+        "Nombre": "Consejo de Carrera",
+        "url": "https://ingenieria.udistrital.edu.co/mod/folder/view.php?id=305",
+        "Tipo": "Especialización - Software"
+    },
+    "Investigacion": {
+        "id": "6",
+        "Nombre": "Investigación",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=306",
+        "Tipo": "Especialización - Software"
+    },
+    "Aulas Virtuales": {
+        "id": "7",
+        "Nombre": "Aulas Virtuales",
+        "url": "https://ingenieria.udistrital.edu.co/course/index.php?categoryid=45",
+        "Tipo": "Especialización - Software"
+    },
+    "Admisiones": {
+        "id": "8",
+        "Nombre": "Admisiones 2020",
+        "url": "https://ingenieria.udistrital.edu.co/mod/page/view.php?id=307",
+        "Imagen": "https://ingenieria.udistrital.edu.co/pluginfile.php/642/mod_page/content/146/Admisiones.jpg",
+        "Tipo": "Especialización - Software"
+    },
+    "Modalidad Grado": {
+        "id": "9",
+        "Nombre": "Modalidad de Grado",
+        "url": "https://ingenieria.udistrital.edu.co/pluginfile.php/633/mod_page/content/181/MODALIDAD%20TRABAJO%20DE%20GRADO%20SOFT.pdf",
+        "Tipo": "Especialización - Software"
+    },
+    "Inscripciones Electiva": {
+        "id": "10",
+        "Nombre": "inscripciones Electiva",
+        "url": "https://docs.google.com/forms/d/16RPoLTyPMz6p_asu-T1GbTMvtl63BOEF9KYV42PsAVc/closedform",
+        "Tipo": "Especialización - Software"
+    }
+}

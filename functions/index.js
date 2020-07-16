@@ -23,6 +23,7 @@ global.JSONcursos = require("./Extension/BD-Curso.json");
 global.JSONdoctorados = require("./Programas/Posgrados/BD-Doctorado.json");
 global.JSONmaestrias = require("./Programas/Posgrados/BD-Maestrias.json");
 global.JSONespecializaciones = require("./Programas/Posgrados/BD-Especializacion.json");
+global.JSONEspeSoftware = require("./Programas/Posgrados/BD-EspecialzizacionSoft.json");
 // Variables Globales Estructura Administrativa
 global.JSONDecanatura = require("./Decanatura/BD-Decanatura.json");
 global.JSONUniversidad = require("./Facultad/BD-Universidad.json");
@@ -61,6 +62,7 @@ server.post("/Bot", (req, res) => {
     // ESPECIALIZCIÓN
     let especializacion;
     let especializacionsoft;
+    let keyuno, keydos, keytres, keycuatro, keycinco, keyseis;
     let imagenEspe;
     let urlEspe;
     // DIPLOMADO
@@ -80,7 +82,9 @@ server.post("/Bot", (req, res) => {
     let universidad;
     // PREGRADO
     let pregrado;
-    let prueba;
+    let info;
+    let imageninfo;
+    let urlInfo;
 
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try {
@@ -143,7 +147,6 @@ server.post("/Bot", (req, res) => {
             imagenDoctorado = global.JSONdoctorados[doctorado].Imagen;
             urlDoctorado = global.JSONdoctorados[doctorado].url;
             resultado = Doctorado.mostrarDoctorado(res, doctorado, textoEnviar, imagenDoctorado, urlDoctorado, opciones);
-            console.log(resultado);
         } else {
             console.log("Error");
         }
@@ -157,19 +160,26 @@ server.post("/Bot", (req, res) => {
         } else {
             console.log("Error");
         }
-    } else if (contexto === "especializacion" | contexto === "especializacionsoft") {
+    } else if (contexto === "especializacion" | contexto === "especializacionsoft"){
         if ((especializacion = req.body.queryResult.parameters.especializacion)) {
             imagenEspe = global.JSONespecializaciones[especializacion].Imagen;
             urlEspe = global.JSONespecializaciones[especializacion].url;
             resultado = Especializacion.mostrarEspecializacion(res, especializacion, textoEnviar, imagenEspe, urlEspe);
         } else if ((especializacionsoft = req.body.queryResult.parameters.especializacionsoft)) {
             if ((especializacionsoft === "Ingeniería Software")) {
-                imagenEspe = global.JSONespecializaciones[especializacionsoft].Imagen;
-                urlEspe = global.JSONespecializaciones[especializacionsoft].url;
-                resultado = Especializacion.mostrarSoftware(res, especializacionsoft, textoEnviar, imagenEspe, urlEspe);
+                resultado = Especializacion.mostrarSoftware(res, textoEnviar, especializacionsoft, keyuno, keydos, keytres, keycuatro, keycinco, keyseis);
             } else {
                 console.log("Error");
             }
+        } else {
+            console.log("Error");
+        }
+    } else if (contexto === "info") {
+        if ((info = req.body.queryResult.parameters.info)) {
+            imageninfo = global.JSONEspeSoftware[info].Imagen;
+            urlInfo = global.JSONEspeSoftware[info].url;
+            resultado = Especializacion.mostrarOpciones(res, info, textoEnviar, imageninfo, urlInfo);
+            console.log(info);
         } else {
             console.log("Error");
         }
