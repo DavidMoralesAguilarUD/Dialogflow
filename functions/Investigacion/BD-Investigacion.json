@@ -1,0 +1,46 @@
+{
+    "Revista Inge": {
+        "id": "1",
+        "Nombre": "Ingeniería",
+        "Imagen": "",
+        "url": "https://revistas.udistrital.edu.co/index.php/reving",
+        "Tipo": "Revista"
+    },
+    "UD Geomatica": {
+        "id": "2",
+        "Nombre": "UD y la Geomática",
+        "Imagen": "",
+        "url": "https://revistas.udistrital.edu.co/index.php/UDGeo",
+        "Tipo": "Revista"
+    },
+    "Redes": {
+        "id": "3",
+        "Nombre": "Redes",
+        "Imagen": "",
+        "url": "https://revistas.udistrital.edu.co/index.php/REDES",
+        "Tipo": "Revista"
+    },
+    "TIA": {
+        "id": "4",
+        "Nombre": "Tecnología Investigación y Academia",
+        "Imagen": "",
+        "url": "https://revistas.udistrital.edu.co/index.php/tia",
+        "Tipo": "Revista"
+    },
+    "RITA": {
+        "id": "5",
+        "Nombre": "Red de Investigaciones de Tecnología Avanzada",
+        "Imagen": "",
+        "url": "https://rita.udistrital.edu.co/",
+        "Tipo": "Investigacion"
+    },
+    "PlanesTICs": {
+        "id": "6",
+        "Nombre": "PlanesTICs",
+        "Imagen": "",
+        "url": "https://campusvirtual.udistrital.edu.co/",
+        "Tipo": "Investigacion"
+    }
+
+}
+

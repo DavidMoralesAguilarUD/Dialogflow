@@ -16,7 +16,8 @@ const Facultad = require('./Facultad/Facultad.js');
 const Universidad = require('./Facultad/Universidad.js');
 const Pregrado = require('./Programas/Pregrado/Pregrado.js');
 const { globalAgent } = require('http');
-
+const Investigacion = require('./Investigacion/Investigacion.js');
+global.JSONimagenes = require("./Imagenes/JSONimagenes.json");
 // Variables Globales Estructura Academica
 global.JSONdiplomados = require("./Extension/BD-Diplomado.json");
 global.JSONcursos = require("./Extension/BD-Curso.json");
@@ -24,6 +25,7 @@ global.JSONdoctorados = require("./Programas/Posgrados/BD-Doctorado.json");
 global.JSONmaestrias = require("./Programas/Posgrados/BD-Maestrias.json");
 global.JSONespecializaciones = require("./Programas/Posgrados/BD-Especializacion.json");
 global.JSONEspeSoftware = require("./Programas/Posgrados/BD-EspecialzizacionSoft.json");
+global.JSONinvestigacion = require("./Investigacion/BD-Investigacion.json");
 // Variables Globales Estructura Administrativa
 global.JSONDecanatura = require("./Decanatura/BD-Decanatura.json");
 global.JSONUniversidad = require("./Facultad/BD-Universidad.json");
@@ -44,13 +46,13 @@ server.post("/Bot", (req, res) => {
     let contexto = "nada";
     let resultado;
     let textoEnviar = `recibida peticion post incorrecta`;
-    
+
     // VARIABLES PARAMETRICAS (INTENCIONES) BASICAS
     // SALUDO
-    
+
     //SUGERENCIAS
     let opciones = DialogLib.reducirAOcho(["Maestria - Telecomunicaciones Móviles", "Especialización en Avaluos ",
-    "Bioingeniería", "Maestria: Ingeniería Industrial", "Doctorado", "Python", "Diplomado en Telesalud"]);
+        "Bioingeniería", "Maestria: Ingeniería Industrial", "Doctorado", "Python", "Diplomado en Telesalud"]);
     // DOCTORADO
     let doctorado;
     let imagenDoctorado;
@@ -85,6 +87,13 @@ server.post("/Bot", (req, res) => {
     let info;
     let imageninfo;
     let urlInfo;
+    // INVESTIGACION
+    let investigacion;
+    let imagenInvest;
+    let urlInvest;
+
+    let saludo;
+    let imagenbot;
 
     // Cuando no hay nada en la variable textoEnviar dentro del contexto
     try {
@@ -98,18 +107,24 @@ server.post("/Bot", (req, res) => {
     } else {
         console.log("Sin Parametros");
     }
-///////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////
 
-  /*   if(contexto === "prueba"){
-        if(prueba = req.body.queryResult.parameters.prueba){
-            resultado = MenuServicios.mostrarSaludo(res, textoEnviar);
+    /*   if(contexto === "prueba"){
+          if(prueba = req.body.queryResult.parameters.prueba){
+              resultado = MenuServicios.mostrarSaludo(res, textoEnviar);
+          }else {
+              console.log("Error");
+          }
+          */
+    ////// Bienvenida //////
+    if (contexto === "saludo") {
+        if ((saludo = req.body.queryResult.parameters.saludo)) {
+            imagenbot = global.JSONimagenes[saludo].Imagen;
+            resultado = MenuServicios.mostrarSaludo(res,saludo,textoEnviar,imagenbot);
+            console.log(resultado);
         }else {
             console.log("Error");
         }
-        */
-    ////// Bienvenida //////
-    if (contexto === "input.welcome") {
-        resultado = MenuServicios.mostrarSaludo(res, textoEnviar);
     } else if (contexto === "afirmacion") {
         resultado = MenuServicios.mostrarSugerencia(res, textoEnviar);
         DialogLib.addSuggestions(resultado, opciones);
@@ -160,7 +175,7 @@ server.post("/Bot", (req, res) => {
         } else {
             console.log("Error");
         }
-    } else if (contexto === "especializacion" | contexto === "especializacionsoft"){
+    } else if (contexto === "especializacion" | contexto === "especializacionsoft") {
         if ((especializacion = req.body.queryResult.parameters.especializacion)) {
             imagenEspe = global.JSONespecializaciones[especializacion].Imagen;
             urlEspe = global.JSONespecializaciones[especializacion].url;
@@ -187,21 +202,30 @@ server.post("/Bot", (req, res) => {
         if ((decanatura = req.body.queryResult.parameters.decanatura)) {
             imagenDeca = global.JSONDecanatura[decanatura].Imagen;
             urlDeca = global.JSONDecanatura[decanatura].url;
-            resultado = Decanatura.mostrarDecanatura(res, decanatura,textoEnviar, imagenDeca, urlDeca);
+            resultado = Decanatura.mostrarDecanatura(res, decanatura, textoEnviar, imagenDeca, urlDeca);
         } else {
             console.log("Error");
         }
-    } else if (contexto === "facultad" || contexto ==="universidad"){
+    } else if (contexto === "facultad" || contexto === "universidad") {
         if ((facultad = req.body.queryResult.parameters.facultad)) {
             resultado = Facultad.mostrarInfoFacultad(res, facultad, textoEnviar);
-        } if ((universidad = req.body.queryResult.parameters.universidad)){
+        } if ((universidad = req.body.queryResult.parameters.universidad)) {
             resultado = Universidad.mostrarInfoUniversidad(res, universidad, textoEnviar);
         } else {
             console.log("Error");
         }
     } else if (contexto === "pregrado") {
         if ((pregrado = req.body.queryResult.parameters.pregrado)) {
-            resultado = Pregrado.mostrarPregrado(res,pregrado,textoEnviar);
+            resultado = Pregrado.mostrarPregrado(res, pregrado, textoEnviar);
+        } else {
+            console.log("Error");
+        }
+    } else if (contexto === "investigacion") {
+        if ((investigacion = req.body.queryResult.parameters.investigacion)) {
+            imagenInvest = global.JSONinvestigacion[investigacion].Imagen;
+            urlInvest = global.JSONinvestigacion[investigacion].url;
+            resultado = Investigacion.mostrarInvestigacion(res, investigacion, textoEnviar, imagenInvest, urlInvest);
+
         } else {
             console.log("Error");
         }

@@ -1,10 +1,12 @@
 'use strict'
-const DialogLib=require('./DialogLib');
+const DialogLib = require('./DialogLib');
 module.exports = {
-    mostrarSaludo: function(resultado, textoEnviar){
+    mostrarSaludo: function (resultado, saludo, textoEnviar, imagenbot) {
         try {
-            textoEnviar="Hola, soy tu ChatBot Virtual UD. ¿Quieres conocer informacion sobre nuestros servicios?";
-            resultado= DialogLib.respuestaBasica(textoEnviar);
+            textoEnviar = "Hola, soy tu ChatBot Virtual UD. ¿Quieres conocer informacion sobre nuestros servicios?";
+            resultado = DialogLib.respuestaBasica(textoEnviar);
+            DialogLib.addCardHello(resultado, saludo, textoEnviar, imagenbot);
+
         } catch (error) {
             resultado = "Error";
         }
@@ -24,6 +26,7 @@ module.exports = {
         try {
             textoEnviar="¿Deseas ver más información? ó vuelvamos a dialogar";
             resultado=DialogLib.respuestaBasica(textoEnviar);
+        
         } catch (error) {
             resultado = "Error";
         }

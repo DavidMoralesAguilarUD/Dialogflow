@@ -123,11 +123,25 @@ function reducirAOcho(opciones) {
     return res;
 
 }
+function addCardHello(res,titulo, texto, imagen) {
+    res.fulfillmentMessages.push(
+        {
+            "platform": "ACTIONS_ON_GOOGLE",
+            "basicCard": {
+                "image": {
+                    "title": titulo,
+                    "imageUri": imagen,
+                    "accessibilityText": texto
+                } 
+            }
+        });
+}
 
 module.exports = {
     respuestaBasica: respuestaBasica,
     addSuggestions: addSuggestions,
     reducirAOcho: reducirAOcho,
     addCard: addCard,
-    listSelect: listSelect
+    listSelect: listSelect,
+    addCardHello: addCardHello
 }
